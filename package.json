@@ -1,0 +1,23 @@
+{
+  "name": "typing-trainer",
+  "version": "1.0.0",
+  "description": "This is a site that helps user to train his typing speed, learn about his weaknesses and view statistics on typed texts in his personal account.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shist/Typing-Trainer.git"
+  },
+  "author": "Shist",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shist/Typing-Trainer/issues"
+  },
+  "homepage": "https://github.com/Shist/Typing-Trainer#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
