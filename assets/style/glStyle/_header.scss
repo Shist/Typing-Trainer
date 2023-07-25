@@ -1,0 +1,32 @@
+@import "./vars";
+@import "./template";
+
+.header {
+  background-color: $dark-bg-color;
+  &__container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    .header__main-headline {
+      @include default-h(45px, 45px, $text-light-color);
+    }
+    .header__nav {
+      display: flex;
+      .header__nav-list {
+        display: flex;
+        column-gap: 30px;
+        .header__nav-list-item {
+          display: flex;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            transform: scale(1.1);
+          }
+          &:hover > .section-link > .section-link__text {
+            color: $link-active-color;
+          }
+        }
+      }
+    }
+  }
+}

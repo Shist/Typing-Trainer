@@ -1,0 +1,74 @@
+@import "../glStyle/vars";
+@import "../glStyle/template";
+@import "../glStyle/header";
+@import "../glStyle/footer";
+
+.main {
+  flex-grow: 1;
+  background-color: $light-bg-color;
+  &__container {
+    padding: 20px;
+    .main__printing-section-headline {
+      margin-bottom: 20px;
+      @include default-h(36px, 36px, $text-dark-color);
+      text-align: center;
+    }
+    .main__choose-sentences-amount-wrapper {
+      margin-bottom: 30px;
+      display: grid;
+      justify-items: start;
+      align-items: center;
+      row-gap: 30px;
+      column-gap: 30px;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      .main__choose-sentences-amount-label,
+      .main__current-sentences-amount-label {
+        @include default-p(28px, 28px, $text-dark-color);
+        justify-self: end;
+      }
+      .main__current-sentences-amount {
+        @include default-p(28px, 28px, $text-dark-color);
+      }
+      .main__sentences-amount-slider-wrapper {
+        .main__sentences-amount-slider {
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: $dark-bg-color;
+          outline: none;
+          border-radius: 5px;
+          height: 10px;
+          opacity: 0.7;
+          &:hover {
+            opacity: 1;
+          }
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: $light-blue-color;
+            &:hover {
+              background: $dark-blue-color;
+            }
+          }
+          &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: $light-blue-color;
+            &:hover {
+              background: $dark-blue-color;
+            }
+          }
+        }
+      }
+    }
+    .main__btn-start-typing {
+      display: block;
+      margin: 0 auto;
+      @include default-btn(250px, $text-light-color, $dark-bg-color);
+    }
+  }
+}
