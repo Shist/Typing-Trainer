@@ -2,3 +2,8 @@
 @import "../glStyle/template";
 @import "../glStyle/header";
 @import "../glStyle/footer";
+
+.main {
+  flex-grow: 1;
+  background-color: $light-bg-color;
+}

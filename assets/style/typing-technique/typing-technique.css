@@ -335,4 +335,9 @@
 }
 .footer__container .footer__git-link-wrapper:hover > .section-link > .section-link__text {
   color: #ffec8b;
+}
+
+.main {
+  flex-grow: 1;
+  background-color: #fffced;
 }/*# sourceMappingURL=typing-technique.css.map */

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style/reset/reset.css" />
+    <link rel="stylesheet" href="./assets/style/main/main.css" />
+    <title>Typing Trainer</title>
+  </head>
+  <body>
+    <div class="global-container">
+      <header class="header">
+        <div class="header__container">
+          <h1 class="header__main-headline">Typing Trainer</h1>
+          <nav class="header__nav">
+            <ul class="header__nav-list">
+              <li class="header__nav-list-item">
+                <a href="./index.html" class="section-link">
+                  <p class="section-link__text">Start typing</p>
+                  <img
+                    src="./assets/images/start-typing.png"
+                    alt="Start typing"
+                    class="section-link__img"
+                  />
+                </a>
+              </li>
+              <li class="header__nav-list-item">
+                <a href="./typing-technique.html" class="section-link">
+                  <p class="section-link__text">Typing technique</p>
+                  <img
+                    src="./assets/images/typing-technique.png"
+                    alt="Typing technique"
+                    class="section-link__img"
+                  />
+                </a>
+              </li>
+              <li class="header__nav-list-item">
+                <a href="./about-project.html" class="section-link">
+                  <p class="section-link__text">About project</p>
+                  <img
+                    src="./assets/images/about-project.png"
+                    alt="About project"
+                    class="section-link__img"
+                  />
+                </a>
+              </li>
+              <li class="header__nav-list-item">
+                <a href="./personal-area.html" class="section-link">
+                  <p class="section-link__text">Sign in</p>
+                  <img
+                    src="./assets/images/log-in.png"
+                    alt="Sign in"
+                    class="section-link__img"
+                  />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main">
+        <div class="main__container">
+          <h2 class="main__printing-section-headline">Section for printing</h2>
+          <div class="main__choose-sentences-amount-wrapper">
+            <span class="main__choose-sentences-amount-label">
+              Choose sentences amount:
+            </span>
+            <div class="main__sentences-amount-slider-wrapper">
+              <input
+                type="range"
+                min="5"
+                max="15"
+                value="10"
+                class="main__sentences-amount-slider"
+                id="sentencesAmount"
+              />
+            </div>
+            <span class="main__current-sentences-amount-label"
+              >Amount of sentences:</span
+            >
+            <span class="main__current-sentences-amount">10</span>
+          </div>
+          <button class="main__btn-start-typing">Start typing</button>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__git-link-wrapper">
+            <a
+              href="https://github.com/Shist/Typing-Trainer"
+              target="_blank"
+              class="section-link"
+            >
+              <img
+                src="./assets/images/github.png"
+                alt="GitHub"
+                class="section-link__img section-link__img_bigger"
+              />
+              <p class="section-link__text">This project on GitHub</p>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./assets/scripts/index.js"></script>
+  </body>
+</html>
