@@ -1,3 +1,5 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {});
+import initMain from "./main/main-controller.js";
+
+initMain();

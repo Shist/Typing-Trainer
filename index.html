@@ -69,9 +69,9 @@
             <div class="main__sentences-amount-slider-wrapper">
               <input
                 type="range"
-                min="5"
-                max="15"
-                value="10"
+                min="1"
+                max="10"
+                value="5"
                 class="main__sentences-amount-slider"
                 id="sentencesAmount"
               />
@@ -79,9 +79,29 @@
             <span class="main__current-sentences-amount-label"
               >Amount of sentences:</span
             >
-            <span class="main__current-sentences-amount">10</span>
+            <span class="main__current-sentences-amount">5</span>
           </div>
           <button class="main__btn-start-typing">Start typing</button>
+          <div class="main__typing-area-wrapper">
+            <div class="main__typing-stats-wrapper">
+              <span class="main__whole-time-label">Whole time:</span>
+              <span class="main__whole-time">00:00:00</span>
+              <span class="main__symbols-typed-label">Symbols typed:</span>
+              <span class="main__symbols-typed">0</span>
+              <span class="main__current-speed-label"
+                >Speed (symbols / min):</span
+              >
+              <span class="main__symbols-typed">0</span>
+            </div>
+            <div class="main__typing-text-input-wrapper">
+              <div class="main__typing-text-wrapper">
+                <span class="main__typing-text-start-msg"
+                  >Here will be the text . . .</span
+                >
+              </div>
+              <input type="text" class="main__typing-input" id="typingInput" />
+            </div>
+          </div>
         </div>
       </main>
       <footer class="footer">
@@ -103,6 +123,6 @@
         </div>
       </footer>
     </div>
-    <script src="./assets/scripts/index.js"></script>
+    <script type="module" src="./assets/scripts/index.js"></script>
   </body>
 </html>

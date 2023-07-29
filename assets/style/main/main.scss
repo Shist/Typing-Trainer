@@ -3,22 +3,31 @@
 @import "../glStyle/header";
 @import "../glStyle/footer";
 
+.typing-word {
+  @include default-p(18px, 18px, $text-light-color);
+}
+
+.active-word {
+  color: $light-blue-color;
+  text-decoration: underline;
+}
+
 .main {
   flex-grow: 1;
   background-color: $light-bg-color;
   &__container {
     padding: 20px;
     .main__printing-section-headline {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       @include default-h(36px, 36px, $text-dark-color);
       text-align: center;
     }
     .main__choose-sentences-amount-wrapper {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       display: grid;
       justify-items: start;
       align-items: center;
-      row-gap: 30px;
+      row-gap: 15px;
       column-gap: 30px;
       grid-template-rows: repeat(2, 1fr);
       grid-template-columns: repeat(2, 1fr);
@@ -67,8 +76,62 @@
     }
     .main__btn-start-typing {
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 20px;
       @include default-btn(250px, $text-light-color, $dark-bg-color);
+    }
+    .main__typing-area-wrapper {
+      background-color: $dark-bg-color;
+      padding: 10px;
+      border-radius: 5px;
+      .main__typing-stats-wrapper {
+        margin-bottom: 20px;
+        display: grid;
+        row-gap: 5px;
+        column-gap: 10px;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        .main__whole-time-label {
+          @include default-p(24px, 24px, $text-light-color);
+          justify-self: end;
+        }
+        .main__whole-time {
+          @include default-p(24px, 24px, $text-light-color);
+        }
+        .main__symbols-typed-label {
+          @include default-p(24px, 24px, $text-light-color);
+          justify-self: end;
+        }
+        .main__symbols-typed {
+          @include default-p(24px, 24px, $text-light-color);
+        }
+        .main__current-speed-label {
+          @include default-p(24px, 24px, $text-light-color);
+          justify-self: end;
+        }
+        .main__symbols-typed {
+          @include default-p(24px, 24px, $text-light-color);
+        }
+      }
+      .main__typing-text-input-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .main__typing-text-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          .main__typing-text-start-msg {
+            @include default-p(18px, 18px, $text-light-color);
+          }
+        }
+        .main__typing-input {
+          -webkit-appearance: none;
+          appearance: none;
+          outline: none;
+          border-radius: 5px;
+          @include default-p(24px, 24px, $text-dark-color);
+          padding: 10px 12px;
+        }
+      }
     }
   }
 }
