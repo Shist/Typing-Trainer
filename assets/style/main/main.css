@@ -514,7 +514,7 @@
   color: white;
   justify-self: end;
 }
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-typed {
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-speed {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;

@@ -6,6 +6,8 @@ import { getTextForTyping } from "./main-model.js";
 
 let currWordsArr = [];
 let activeWordIndex = 0;
+let startTime = "default";
+let intervalId = undefined;
 let currSymbolsAmount = 0;
 
 function makePrevWordInactive(wordIndex, typingInput) {
@@ -13,9 +15,41 @@ function makePrevWordInactive(wordIndex, typingInput) {
   typingInput.value = "";
 }
 
-function updateSymbolsAmount(newAmount, symbolsAmountLabel) {
+function updateSymbolsAmount(newAmount) {
   currSymbolsAmount = newAmount;
-  symbolsAmountLabel.textContent = currSymbolsAmount;
+  document.querySelector(".main__symbols-typed").textContent =
+    currSymbolsAmount;
+}
+
+function getFormattedTimeElementString(number) {
+  let timeNumberLabel = number.toString();
+  if (timeNumberLabel.length === 1) {
+    timeNumberLabel = `0${timeNumberLabel}`;
+  }
+  return timeNumberLabel;
+}
+
+function updateTimerAndSpeed() {
+  const timeLabel = document.querySelector(".main__whole-time");
+  const speedLabel = document.querySelector(".main__symbols-speed");
+  if (arguments[0] && arguments[0] === "default") {
+    timeLabel.textContent = "00:00:00";
+    speedLabel.textContent = "0";
+  } else {
+    const wholeMilliseconds = new Date().getTime() - startTime;
+    const currMillisecondsDozens = Math.trunc((wholeMilliseconds % 1000) / 10);
+    const wholeSeconds = Math.trunc(wholeMilliseconds / 1000);
+    const currSeconds = wholeSeconds % 60;
+    const wholeMinutes = Math.trunc(wholeSeconds / 60);
+    timeLabel.textContent = `${getFormattedTimeElementString(
+      wholeMinutes
+    )}:${getFormattedTimeElementString(
+      currSeconds
+    )}:${getFormattedTimeElementString(currMillisecondsDozens)}`;
+    speedLabel.textContent = Math.trunc(
+      (currSymbolsAmount * 60000) / wholeMilliseconds
+    );
+  }
 }
 
 function initMain() {
@@ -25,9 +59,6 @@ function initMain() {
       ".main__current-sentences-amount"
     );
     const btnStartTyping = document.querySelector(".main__btn-start-typing");
-    const timeLabel = document.querySelector(".main__whole-time");
-    const symbolsAmountLabel = document.querySelector(".main__symbols-typed");
-    const speedLabel = document.querySelector("main__symbols-typed");
     const typingTextWrapper = document.querySelector(
       ".main__typing-text-wrapper"
     );
@@ -39,14 +70,12 @@ function initMain() {
     btnStartTyping.addEventListener("click", () => {
       if (btnStartTyping.textContent === "Start typing") {
         btnStartTyping.textContent = "Cancel typing";
-        typingInput.classList.remove("input-with-error");
         typingInput.value = "";
         getTextForTyping(sentencesAmountSlider.value).then((wordsArr) => {
           typingTextWrapper.innerHTML = "";
           currWordsArr = wordsArr;
-          activeWordIndex = 0;
-          currSymbolsAmount = 0;
-          updateSymbolsAmount(currSymbolsAmount, symbolsAmountLabel);
+          startTime = new Date().getTime();
+          intervalId = setInterval(updateTimerAndSpeed, 10);
           currWordsArr.forEach((word, index) => {
             const nextWord = document.createElement("span");
             nextWord.classList.add("typing-word");
@@ -55,17 +84,23 @@ function initMain() {
             typingTextWrapper.append(nextWord);
           });
           document.querySelector("#word-0").classList.add("active-word");
+          typingInput.focus();
         });
       } else {
         btnStartTyping.textContent = "Start typing";
+        typingInput.classList.remove("input-with-error");
+        currWordsArr = [];
+        activeWordIndex = 0;
+        clearInterval(intervalId);
+        updateTimerAndSpeed("default");
+        updateSymbolsAmount(0);
       }
     });
     typingInput.addEventListener("input", () => {
       if (typingInput.value === `${currWordsArr[activeWordIndex]} `) {
         makePrevWordInactive(activeWordIndex, typingInput);
         updateSymbolsAmount(
-          currSymbolsAmount + currWordsArr[activeWordIndex].length + 1,
-          symbolsAmountLabel
+          currSymbolsAmount + currWordsArr[activeWordIndex].length + 1
         );
         activeWordIndex++;
         document
@@ -75,10 +110,10 @@ function initMain() {
         activeWordIndex === currWordsArr.length - 1 &&
         typingInput.value === currWordsArr[activeWordIndex]
       ) {
+        clearInterval(intervalId);
         makePrevWordInactive(activeWordIndex, typingInput);
         updateSymbolsAmount(
-          currSymbolsAmount + currWordsArr[activeWordIndex].length,
-          symbolsAmountLabel
+          currSymbolsAmount + currWordsArr[activeWordIndex].length
         );
       } else {
         if (currWordsArr[activeWordIndex]) {
