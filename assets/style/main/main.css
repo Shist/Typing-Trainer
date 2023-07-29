@@ -341,8 +341,8 @@
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   color: white;
 }
 
@@ -471,7 +471,11 @@
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
 }
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__whole-time-label {
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__whole-time-label,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-typed-label,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__current-speed-label,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__mistakes-amount-label,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__mistakes-percent-label {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -480,41 +484,11 @@
   color: white;
   justify-self: end;
 }
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__whole-time {
-  padding: 4px;
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 24px;
-  color: white;
-}
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-typed-label {
-  padding: 4px;
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 24px;
-  color: white;
-  justify-self: end;
-}
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-typed {
-  padding: 4px;
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 24px;
-  color: white;
-}
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__current-speed-label {
-  padding: 4px;
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 24px;
-  color: white;
-  justify-self: end;
-}
-.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-speed {
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__whole-time,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-typed,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-speed,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__mistakes-amount,
+.main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__mistakes-percent {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -535,8 +509,8 @@
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   color: white;
 }
 .main__container .main__typing-area-wrapper .main__typing-text-input-wrapper .main__typing-input {

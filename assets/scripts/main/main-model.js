@@ -12,4 +12,13 @@ async function getTextForTyping(sentencesAmount) {
   return textSpansArr;
 }
 
-export { getTextForTyping };
+function getWholeCharsAmount(textSpansArr) {
+  return textSpansArr
+    .map((word) => word.length)
+    .reduce(
+      (prevWordLength, nextWordLength) => prevWordLength + nextWordLength,
+      textSpansArr.length - 1
+    );
+}
+
+export { getTextForTyping, getWholeCharsAmount };

@@ -1,14 +1,16 @@
 "use strict";
 
-import { getTextForTyping } from "./main-model.js";
+import { getTextForTyping, getWholeCharsAmount } from "./main-model.js";
 
 // Controller of Main page
 
 let currWordsArr = [];
+let currWholeCharsCount = 0;
 let activeWordIndex = 0;
 let startTime = "default";
 let intervalId = undefined;
 let currSymbolsAmount = 0;
+let currMistakesAmount = 0;
 
 function makePrevWordInactive(wordIndex, typingInput) {
   document.querySelector(`#word-${wordIndex}`).classList.remove("active-word");
@@ -17,8 +19,22 @@ function makePrevWordInactive(wordIndex, typingInput) {
 
 function updateSymbolsAmount(newAmount) {
   currSymbolsAmount = newAmount;
-  document.querySelector(".main__symbols-typed").textContent =
-    currSymbolsAmount;
+  document.querySelector(
+    ".main__symbols-typed"
+  ).textContent = `${currSymbolsAmount} / ${currWholeCharsCount}`;
+}
+
+function updateMistakesAmount(newAmount) {
+  currMistakesAmount = newAmount;
+  document.querySelector(".main__mistakes-amount").textContent =
+    currMistakesAmount;
+  document.querySelector(".main__mistakes-percent").textContent = `${
+    currWholeCharsCount
+      ? ((100 * currMistakesAmount) / currWholeCharsCount).toFixed(2) <= 100
+        ? ((100 * currMistakesAmount) / currWholeCharsCount).toFixed(2)
+        : "100.00"
+      : "0.00"
+  }%`;
 }
 
 function getFormattedTimeElementString(number) {
@@ -46,10 +62,20 @@ function updateTimerAndSpeed() {
     )}:${getFormattedTimeElementString(
       currSeconds
     )}:${getFormattedTimeElementString(currMillisecondsDozens)}`;
-    speedLabel.textContent = Math.trunc(
+    speedLabel.textContent = `${Math.trunc(
       (currSymbolsAmount * 60000) / wholeMilliseconds
-    );
+    )} chars/min`;
   }
+}
+
+function setAllStatsToDefault(intervalId) {
+  currWordsArr = [];
+  currWholeCharsCount = 0;
+  activeWordIndex = 0;
+  clearInterval(intervalId);
+  updateTimerAndSpeed("default");
+  updateSymbolsAmount(0);
+  updateMistakesAmount(0);
 }
 
 function initMain() {
@@ -67,15 +93,18 @@ function initMain() {
     sentencesAmountSlider.addEventListener("input", () => {
       sentencesAmountLabel.textContent = sentencesAmountSlider.value;
     });
+
     btnStartTyping.addEventListener("click", () => {
+      typingInput.value = "";
       if (btnStartTyping.textContent === "Start typing") {
         btnStartTyping.textContent = "Cancel typing";
-        typingInput.value = "";
         getTextForTyping(sentencesAmountSlider.value).then((wordsArr) => {
           typingTextWrapper.innerHTML = "";
           currWordsArr = wordsArr;
           startTime = new Date().getTime();
           intervalId = setInterval(updateTimerAndSpeed, 10);
+          currWholeCharsCount = getWholeCharsAmount(wordsArr);
+          updateSymbolsAmount(0);
           currWordsArr.forEach((word, index) => {
             const nextWord = document.createElement("span");
             nextWord.classList.add("typing-word");
@@ -84,18 +113,22 @@ function initMain() {
             typingTextWrapper.append(nextWord);
           });
           document.querySelector("#word-0").classList.add("active-word");
+          sentencesAmountSlider.disabled = true;
+          typingInput.disabled = false;
           typingInput.focus();
         });
       } else {
         btnStartTyping.textContent = "Start typing";
+        typingInput.disabled = true;
+        sentencesAmountSlider.disabled = false;
         typingInput.classList.remove("input-with-error");
-        currWordsArr = [];
-        activeWordIndex = 0;
-        clearInterval(intervalId);
-        updateTimerAndSpeed("default");
-        updateSymbolsAmount(0);
+        typingTextWrapper.innerHTML = `
+              <span class="main__typing-text-start-msg">Here will be the text . . .</span>
+          `;
+        setAllStatsToDefault(intervalId, typingTextWrapper);
       }
     });
+
     typingInput.addEventListener("input", () => {
       if (typingInput.value === `${currWordsArr[activeWordIndex]} `) {
         makePrevWordInactive(activeWordIndex, typingInput);
@@ -111,15 +144,24 @@ function initMain() {
         typingInput.value === currWordsArr[activeWordIndex]
       ) {
         clearInterval(intervalId);
+        typingInput.value = "";
+        btnStartTyping.textContent = "Start typing";
+        typingInput.disabled = true;
+        sentencesAmountSlider.disabled = false;
         makePrevWordInactive(activeWordIndex, typingInput);
         updateSymbolsAmount(
           currSymbolsAmount + currWordsArr[activeWordIndex].length
         );
       } else {
         if (currWordsArr[activeWordIndex]) {
-          currWordsArr[activeWordIndex].startsWith(typingInput.value)
-            ? typingInput.classList.remove("input-with-error")
-            : typingInput.classList.add("input-with-error");
+          if (currWordsArr[activeWordIndex].startsWith(typingInput.value)) {
+            typingInput.classList.remove("input-with-error");
+          } else {
+            if (!typingInput.classList.contains("input-with-error")) {
+              typingInput.classList.add("input-with-error");
+              updateMistakesAmount(currMistakesAmount + 1);
+            }
+          }
         }
       }
     });

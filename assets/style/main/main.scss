@@ -4,7 +4,7 @@
 @import "../glStyle/footer";
 
 .typing-word {
-  @include default-p(18px, 18px, $text-light-color);
+  @include default-p(20px, 20px, $text-light-color);
 }
 
 .active-word {
@@ -95,25 +95,19 @@
         column-gap: 10px;
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
-        .main__whole-time-label {
+        .main__whole-time-label,
+        .main__symbols-typed-label,
+        .main__current-speed-label,
+        .main__mistakes-amount-label,
+        .main__mistakes-percent-label {
           @include default-p(24px, 24px, $text-light-color);
           justify-self: end;
         }
-        .main__whole-time {
-          @include default-p(24px, 24px, $text-light-color);
-        }
-        .main__symbols-typed-label {
-          @include default-p(24px, 24px, $text-light-color);
-          justify-self: end;
-        }
-        .main__symbols-typed {
-          @include default-p(24px, 24px, $text-light-color);
-        }
-        .main__current-speed-label {
-          @include default-p(24px, 24px, $text-light-color);
-          justify-self: end;
-        }
-        .main__symbols-speed {
+        .main__whole-time,
+        .main__symbols-typed,
+        .main__symbols-speed,
+        .main__mistakes-amount,
+        .main__mistakes-percent {
           @include default-p(24px, 24px, $text-light-color);
         }
       }
@@ -125,7 +119,7 @@
           display: flex;
           flex-wrap: wrap;
           .main__typing-text-start-msg {
-            @include default-p(18px, 18px, $text-light-color);
+            @include default-p(20px, 20px, $text-light-color);
           }
         }
         .main__typing-input {
