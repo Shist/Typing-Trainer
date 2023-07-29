@@ -323,7 +323,7 @@
   background-color: #181818;
 }
 .footer__container {
-  padding: 20px;
+  padding: 40px 20px;
 }
 .footer__container .footer__git-link-wrapper {
   max-width: 280px;
@@ -354,6 +354,108 @@
 .input-with-error {
   color: white !important;
   background-color: #ff4444 !important;
+}
+
+.modal-window-wrapper {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-window-wrapper__window {
+  position: relative;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: #fffced;
+  padding: 20px;
+  border-radius: 10px;
+}
+.modal-window-wrapper__window .modal-window-wrapper__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: transparent;
+  background-image: url(../../images/cross.png);
+  background-size: cover;
+}
+.modal-window-wrapper__window .modal-window-wrapper__headline {
+  align-self: center;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+  color: black;
+}
+.modal-window-wrapper__window .modal-window-wrapper__text-info {
+  text-align: center;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: black;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+  text-decoration: none;
+  max-width: 200px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background-color: #181818;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
+  transform: scale(1.1);
+  color: #ffec8b;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+  max-width: 200px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background-color: #181818;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
+  transform: scale(1.1);
+  color: #ffec8b;
 }
 
 .main {
@@ -504,6 +606,7 @@
 .main__container .main__typing-area-wrapper .main__typing-text-input-wrapper .main__typing-text-wrapper {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 .main__container .main__typing-area-wrapper .main__typing-text-input-wrapper .main__typing-text-wrapper .main__typing-text-start-msg {
   padding: 4px;

@@ -17,6 +17,62 @@
   background-color: $red-color !important;
 }
 
+.modal-window-wrapper {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  &__window {
+    position: relative;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: $light-bg-color;
+    padding: 20px;
+    border-radius: 10px;
+    .modal-window-wrapper__close-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      background-color: transparent;
+      background-image: url(../../images/cross.png);
+      background-size: cover;
+    }
+    .modal-window-wrapper__headline {
+      align-self: center;
+      @include default-h(48px, 48px, $text-dark-color);
+    }
+    .modal-window-wrapper__text-info {
+      text-align: center;
+      @include default-p(28px, 28px, $text-dark-color);
+    }
+    .modal-window-wrapper__btns-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      .modal-window-wrapper__btn-sign-in {
+        text-decoration: none;
+        @include default-btn(200px, $text-light-color, $dark-bg-color);
+      }
+      .modal-window-wrapper__btn-start-anyway,
+      .modal-window-wrapper__btn-confirm-cancellation,
+      .modal-window-wrapper__btn-resume-typing {
+        @include default-btn(200px, $text-light-color, $dark-bg-color);
+      }
+    }
+  }
+}
+
 .main {
   flex-grow: 1;
   background-color: $light-bg-color;
@@ -118,6 +174,7 @@
         .main__typing-text-wrapper {
           display: flex;
           flex-wrap: wrap;
+          align-content: flex-start;
           .main__typing-text-start-msg {
             @include default-p(20px, 20px, $text-light-color);
           }
