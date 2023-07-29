@@ -347,8 +347,13 @@
 }
 
 .active-word {
-  color: #48cae4;
-  text-decoration: underline;
+  color: #48cae4 !important;
+  text-decoration: underline !important;
+}
+
+.input-with-error {
+  color: white !important;
+  background-color: #ff4444 !important;
 }
 
 .main {

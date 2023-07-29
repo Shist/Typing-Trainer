@@ -8,8 +8,13 @@
 }
 
 .active-word {
-  color: $light-blue-color;
-  text-decoration: underline;
+  color: $light-blue-color !important;
+  text-decoration: underline !important;
+}
+
+.input-with-error {
+  color: $text-light-color !important;
+  background-color: $red-color !important;
 }
 
 .main {
