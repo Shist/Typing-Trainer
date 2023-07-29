@@ -398,6 +398,7 @@
   font-size: 48px;
   line-height: 48px;
   color: black;
+  padding-inline: 40px;
 }
 .modal-window-wrapper__window .modal-window-wrapper__text-info {
   text-align: center;
@@ -456,6 +457,61 @@
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
   transform: scale(1.1);
   color: #ffec8b;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok {
+  align-self: center;
+  max-width: 300px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background-color: #181818;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover {
+  transform: scale(1.1);
+  color: #ffec8b;
+}
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
+  margin-bottom: 20px;
+  display: grid;
+  row-gap: 5px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: black;
+  justify-self: end;
+}
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: black;
 }
 
 .main {
@@ -560,9 +616,11 @@
   color: #ffec8b;
 }
 .main__container .main__typing-area-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
   background-color: #181818;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
 }
 .main__container .main__typing-area-wrapper .main__typing-stats-wrapper {
   margin-bottom: 20px;
@@ -570,7 +628,7 @@
   row-gap: 5px;
   -moz-column-gap: 10px;
        column-gap: 10px;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(2, 1fr);
 }
 .main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__whole-time-label,

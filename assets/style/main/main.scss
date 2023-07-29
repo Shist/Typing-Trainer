@@ -52,6 +52,7 @@
     .modal-window-wrapper__headline {
       align-self: center;
       @include default-h(48px, 48px, $text-dark-color);
+      padding-inline: 40px;
     }
     .modal-window-wrapper__text-info {
       text-align: center;
@@ -68,6 +69,33 @@
       .modal-window-wrapper__btn-confirm-cancellation,
       .modal-window-wrapper__btn-resume-typing {
         @include default-btn(200px, $text-light-color, $dark-bg-color);
+      }
+    }
+    .modal-window-wrapper__btn-ok {
+      align-self: center;
+      @include default-btn(300px, $text-light-color, $dark-bg-color);
+    }
+    .modal-window-wrapper__stats-wrapper {
+      margin-bottom: 20px;
+      display: grid;
+      row-gap: 5px;
+      column-gap: 10px;
+      grid-template-rows: repeat(5, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      .modal-window-wrapper__whole-time-label,
+      .modal-window-wrapper__symbols-typed-label,
+      .modal-window-wrapper__current-speed-label,
+      .modal-window-wrapper__mistakes-amount-label,
+      .modal-window-wrapper__mistakes-percent-label {
+        @include default-p(24px, 24px, $text-dark-color);
+        justify-self: end;
+      }
+      .modal-window-wrapper__whole-time,
+      .modal-window-wrapper__symbols-typed,
+      .modal-window-wrapper__symbols-speed,
+      .modal-window-wrapper__mistakes-amount,
+      .modal-window-wrapper__mistakes-percent {
+        @include default-p(24px, 24px, $text-dark-color);
       }
     }
   }
@@ -141,15 +169,17 @@
       @include default-btn(250px, $text-light-color, $dark-bg-color);
     }
     .main__typing-area-wrapper {
+      max-width: 1600px;
+      margin: 0 auto;
       background-color: $dark-bg-color;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 20px;
+      border-radius: 10px;
       .main__typing-stats-wrapper {
         margin-bottom: 20px;
         display: grid;
         row-gap: 5px;
         column-gap: 10px;
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
         grid-template-columns: repeat(2, 1fr);
         .main__whole-time-label,
         .main__symbols-typed-label,
