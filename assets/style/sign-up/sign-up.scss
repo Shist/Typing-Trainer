@@ -67,12 +67,6 @@
         margin-bottom: 20px;
         @include default-p(28px, 28px, $red-color);
       }
-      .main__success-msg {
-        display: block;
-        text-align: center;
-        margin-bottom: 20px;
-        @include default-p(28px, 28px, $green-color);
-      }
       .main__confirm-btn {
         @include default-btn(250px, $text-light-color, $dark-blue-color);
       }

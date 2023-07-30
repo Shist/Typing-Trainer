@@ -1,7 +1,10 @@
 "use strict";
 
 import { getTextForTyping, getWholeCharsAmount } from "./main-model.js";
-import { checkAuthorization } from "../tools/sign-in-check.js";
+import {
+  addCloseListenersToModalWindow,
+  checkAuthorization,
+} from "../tools/tools.js";
 
 // Controller of Main page
 
@@ -72,20 +75,6 @@ function updateTimerAndSpeed() {
     }
     speedLabel.textContent = `${currSpeed} chars/min`;
   }
-}
-
-function addCloseListenersToModalWindow(modalWindowWrapper) {
-  const modalWindowCloseBtn = document.querySelector(
-    ".modal-window-wrapper__close-btn"
-  );
-  modalWindowCloseBtn.addEventListener("click", () => {
-    modalWindowWrapper.remove();
-  });
-  modalWindowWrapper.addEventListener("click", (event) => {
-    if (event.target === modalWindowWrapper) {
-      modalWindowWrapper.remove();
-    }
-  });
 }
 
 function setAllStatsToDefault(intervalId) {

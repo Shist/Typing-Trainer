@@ -6,6 +6,7 @@ import {
   isNicknameFree,
   registerAccount,
 } from "./sign-up-model.js";
+import { addCloseListenersToModalWindow } from "../tools/tools.js";
 
 // Controller of page "Sign up"
 
@@ -55,11 +56,27 @@ function initSignUp() {
                 hideElement(errorMsgLabel, "block");
                 registerAccount(enteredNickname, enteredPassword)
                   .then((response) => {
-                    showElement(successMsgLabel, "block");
-                    setTimeout(() => {
-                      hideElement(successMsgLabel, "block");
-                    }, 5000);
                     form.reset();
+                    const modalWindowWrapper = document.createElement("div");
+                    modalWindowWrapper.classList.add("modal-window-wrapper");
+                    modalWindowWrapper.innerHTML = `
+                        <div class="modal-window-wrapper__window">
+                            <button class="modal-window-wrapper__close-btn"></button>
+                            <h3 class="modal-window-wrapper__headline">&#129395 Сongratulations! &#129395</h3>
+                            <p class="modal-window-wrapper__text-info">
+                                You have successfully created account!
+                            </p>
+                            <button class="modal-window-wrapper__btn-ok">Go to personal area</button>
+                        </div>
+                        `;
+                    document.body.append(modalWindowWrapper);
+                    addCloseListenersToModalWindow(modalWindowWrapper);
+                    const modalWindowOkBtn = document.querySelector(
+                      ".modal-window-wrapper__btn-ok"
+                    );
+                    modalWindowOkBtn.addEventListener("click", () => {
+                      window.location.href = "personal-area.html";
+                    });
                   })
                   .catch((error) => {
                     errorMsgLabel.textContent = `Error while adding this account to database: ${error}`;
