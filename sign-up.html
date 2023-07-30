@@ -50,7 +50,46 @@
         </div>
       </header>
       <main class="main">
-        <div class="main__container"></div>
+        <div class="main__container">
+          <form action="#" class="main__sign-up-form">
+            <h2 class="main__sign-up-headline">Sign up</h2>
+            <h3 class="main__nickname-input-label">
+              Enter your nickname below:
+            </h3>
+            <input
+              type="text"
+              name="nickname"
+              class="main__nickname-input"
+              id="nicknameInput"
+              placeholder="Nickname"
+              required
+            />
+            <h3 class="main__password-input-label">
+              Enter your password below:
+            </h3>
+            <input
+              type="password"
+              name="password"
+              class="main__password-input"
+              id="passwordInput"
+              placeholder="Password"
+              required
+            />
+            <h3 class="main__repeat-password-input-label">
+              Repeat your password below:
+            </h3>
+            <input
+              type="password"
+              name="repeat-password"
+              class="main__repeat-password-input"
+              id="repeatPasswordInput"
+              placeholder="Repeat password"
+              required
+            />
+            <h4 class="main__error-msg hidden-element"></h4>
+            <button class="main__confirm-btn">Confirm</button>
+          </form>
+        </div>
       </main>
       <footer class="footer">
         <div class="footer__container">

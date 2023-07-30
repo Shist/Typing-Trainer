@@ -6,4 +6,68 @@
 .main {
   flex-grow: 1;
   background-color: $light-bg-color;
+  .main__container {
+    padding: 20px;
+    .main__sign-up-form {
+      max-width: 500px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $dark-bg-color;
+      border-radius: 10px;
+      .main__sign-up-headline {
+        margin-bottom: 20px;
+        @include default-h(42px, 42px, $text-light-color);
+      }
+      .main__nickname-input-label {
+        margin-bottom: 10px;
+        @include default-h(28px, 28px, $text-light-color);
+      }
+      .main__nickname-input {
+        margin-bottom: 20px;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        border-radius: 5px;
+        @include default-p(24px, 24px, $text-dark-color);
+        padding: 10px 12px;
+      }
+      .main__password-input-label {
+        margin-bottom: 10px;
+        @include default-h(28px, 28px, $text-light-color);
+      }
+      .main__password-input {
+        margin-bottom: 20px;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        border-radius: 5px;
+        @include default-p(24px, 24px, $text-dark-color);
+        padding: 10px 12px;
+      }
+      .main__repeat-password-input-label {
+        margin-bottom: 10px;
+        @include default-h(28px, 28px, $text-light-color);
+      }
+      .main__repeat-password-input {
+        margin-bottom: 20px;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        border-radius: 5px;
+        @include default-p(24px, 24px, $text-dark-color);
+        padding: 10px 12px;
+      }
+      .main__error-msg {
+        margin-bottom: 20px;
+        @include default-p(28px, 28px, $red-color);
+      }
+      .main__confirm-btn {
+        @include default-btn(250px, $text-light-color, $dark-blue-color);
+      }
+    }
+  }
 }
