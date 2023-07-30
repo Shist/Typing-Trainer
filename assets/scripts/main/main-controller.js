@@ -1,6 +1,7 @@
 "use strict";
 
 import { getTextForTyping, getWholeCharsAmount } from "./main-model.js";
+import { checkAuthorization } from "../tools/sign-in-check.js";
 
 // Controller of Main page
 
@@ -100,6 +101,8 @@ function setAllStatsToDefault(intervalId) {
 
 function initMain() {
   document.addEventListener("DOMContentLoaded", () => {
+    checkAuthorization();
+
     const sentencesAmountSlider = document.querySelector("#sentencesAmount");
     const sentencesAmountLabel = document.querySelector(
       ".main__current-sentences-amount"
@@ -128,7 +131,7 @@ function initMain() {
                 in the personal account. Would you like to sign in or start typing anyway?
             </p>
             <div class="modal-window-wrapper__btns-wrapper">
-                <a href="./personal-area.html" class="modal-window-wrapper__btn-sign-in">Sign in</a>
+                <a href="./sign-in.html" class="modal-window-wrapper__btn-sign-in">Sign in</a>
                 <button class="modal-window-wrapper__btn-start-anyway">Start anyway</button>
             </div>
         </div>
@@ -139,7 +142,7 @@ function initMain() {
           ".modal-window-wrapper__btn-sign-in"
         );
         modalWindowSignInBtn.addEventListener("click", () => {
-          document.href = "./personal-area.html";
+          document.href = "./sign-in.html";
         });
         const modalWindowStartAnywayBtn = document.querySelector(
           ".modal-window-wrapper__btn-start-anyway"

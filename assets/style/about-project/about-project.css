@@ -192,7 +192,7 @@
   background-color: #181818;
 }
 .header__container {
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
 }

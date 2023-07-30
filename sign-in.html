@@ -45,22 +45,44 @@
                   />
                 </a>
               </li>
-              <li class="header__nav-list-item">
-                <a href="./personal-area.html" class="section-link">
-                  <p class="section-link__text">Sign in</p>
-                  <img
-                    src="./assets/images/log-in.png"
-                    alt="Sign in"
-                    class="section-link__img"
-                  />
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
       </header>
       <main class="main">
-        <div class="main__container"></div>
+        <div class="main__container">
+          <form action="#" class="main__sign-in-form">
+            <h2 class="main__sign-in-headline">Sign in</h2>
+            <h3 class="main__nickname-input-label">
+              Enter your nickname below:
+            </h3>
+            <input
+              type="text"
+              name="nickname"
+              class="main__nickname-input"
+              id="nicknameInput"
+              placeholder="Nickname"
+              required
+            />
+            <h3 class="main__password-input-label">
+              Enter your password below:
+            </h3>
+            <input
+              type="password"
+              name="password"
+              class="main__password-input"
+              id="passwordInput"
+              placeholder="Password"
+              required
+            />
+            <h4 class="main__error-msg hidden-element"></h4>
+            <button class="main__confirm-btn">Confirm</button>
+          </form>
+          <h3 class="main__sign-up-suggestion-headline">
+            Don't have account yet?
+          </h3>
+          <a href="./sign-up.html" class="main__sign-up-btn">Sign up</a>
+        </div>
       </main>
       <footer class="footer">
         <div class="footer__container">

@@ -4,7 +4,7 @@
 .header {
   background-color: $dark-bg-color;
   &__container {
-    padding: 20px;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     .header__main-headline {

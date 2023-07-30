@@ -192,7 +192,7 @@
   background-color: #181818;
 }
 .header__container {
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
 }
@@ -340,4 +340,135 @@
 .main {
   flex-grow: 1;
   background-color: #fffced;
+}
+.main .main__container {
+  padding: 20px;
+}
+.main .main__container .main__sign-in-form {
+  margin-bottom: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #181818;
+  border-radius: 10px;
+}
+.main .main__container .main__sign-in-form .main__sign-in-headline {
+  margin-bottom: 20px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 42px;
+  color: white;
+}
+.main .main__container .main__sign-in-form .main__nickname-input-label {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  color: white;
+}
+.main .main__container .main__sign-in-form .main__nickname-input {
+  margin-bottom: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: black;
+  padding: 10px 12px;
+}
+.main .main__container .main__sign-in-form .main__password-input-label {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  color: white;
+}
+.main .main__container .main__sign-in-form .main__password-input {
+  margin-bottom: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: black;
+  padding: 10px 12px;
+}
+.main .main__container .main__sign-in-form .main__error-msg {
+  margin-bottom: 20px;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: #ff4444;
+}
+.main .main__container .main__sign-in-form .main__confirm-btn {
+  max-width: 250px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background-color: #0096c7;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main .main__container .main__sign-in-form .main__confirm-btn:hover {
+  transform: scale(1.1);
+  color: #ffec8b;
+}
+.main .main__container .main__sign-up-suggestion-headline {
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  color: black;
+}
+.main .main__container .main__sign-up-btn {
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  max-width: 250px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background-color: #181818;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main .main__container .main__sign-up-btn:hover {
+  transform: scale(1.1);
+  color: #ffec8b;
 }/*# sourceMappingURL=sign-in.css.map */

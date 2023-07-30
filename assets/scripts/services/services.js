@@ -1,3 +1,5 @@
+"use strict";
+
 async function getData(url) {
   try {
     const response = await fetch(url);
