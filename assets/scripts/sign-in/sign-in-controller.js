@@ -1,6 +1,7 @@
 "use strict";
 
 import { showElement, hideElement, getNicknameData } from "./sign-in-model.js";
+import { putAuthorizationToLocalStorage } from "../tools/tools.js";
 
 // Controller of page "Sign in"
 
@@ -35,7 +36,8 @@ function initSignIn() {
                 showElement(errorMsgLabel, "block");
               } else {
                 hideElement(errorMsgLabel, "block");
-                window.location.href = "personal-area.html";
+                putAuthorizationToLocalStorage(enteredNickname);
+                window.location.href = "./personal-area.html";
               }
             }
           })

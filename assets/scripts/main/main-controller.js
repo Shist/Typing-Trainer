@@ -3,7 +3,7 @@
 import { getTextForTyping, getWholeCharsAmount } from "./main-model.js";
 import {
   addCloseListenersToModalWindow,
-  checkAuthorization,
+  checkAuthorizationAtLocalStorage,
 } from "../tools/tools.js";
 
 // Controller of Main page
@@ -90,7 +90,7 @@ function setAllStatsToDefault(intervalId) {
 
 function initMain() {
   document.addEventListener("DOMContentLoaded", () => {
-    checkAuthorization();
+    checkAuthorizationAtLocalStorage();
 
     const sentencesAmountSlider = document.querySelector("#sentencesAmount");
     const sentencesAmountLabel = document.querySelector(

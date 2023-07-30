@@ -6,7 +6,10 @@ import {
   isNicknameFree,
   registerAccount,
 } from "./sign-up-model.js";
-import { addCloseListenersToModalWindow } from "../tools/tools.js";
+import {
+  addCloseListenersToModalWindow,
+  putAuthorizationToLocalStorage,
+} from "../tools/tools.js";
 
 // Controller of page "Sign up"
 
@@ -75,7 +78,8 @@ function initSignUp() {
                       ".modal-window-wrapper__btn-ok"
                     );
                     modalWindowOkBtn.addEventListener("click", () => {
-                      window.location.href = "personal-area.html";
+                      putAuthorizationToLocalStorage(enteredNickname);
+                      window.location.href = "./personal-area.html";
                     });
                   })
                   .catch((error) => {

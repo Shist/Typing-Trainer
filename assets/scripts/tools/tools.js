@@ -14,8 +14,16 @@ function addCloseListenersToModalWindow(modalWindowWrapper) {
   });
 }
 
-function checkAuthorization() {
-  if (localStorage.getItem("currentUserId")) {
+function putAuthorizationToLocalStorage(nickname) {
+  localStorage.setItem("currentUser", nickname);
+}
+
+function removeAuthorizationFromLocalStorage() {
+  localStorage.removeItem("currentUser");
+}
+
+function checkAuthorizationAtLocalStorage() {
+  if (localStorage.getItem("currentUser")) {
     const authorizationLink = document.querySelector("#authorization-link");
     authorizationLink.href = "./personal-area.html";
     authorizationLink.querySelector("p").textContent = "Personal area";
@@ -25,4 +33,9 @@ function checkAuthorization() {
   }
 }
 
-export { addCloseListenersToModalWindow, checkAuthorization };
+export {
+  addCloseListenersToModalWindow,
+  putAuthorizationToLocalStorage,
+  removeAuthorizationFromLocalStorage,
+  checkAuthorizationAtLocalStorage,
+};
