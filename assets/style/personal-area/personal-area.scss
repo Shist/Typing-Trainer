@@ -6,4 +6,50 @@
 .main {
   flex-grow: 1;
   background-color: $light-bg-color;
+  &__container {
+    padding: 20px;
+    .main__personal-area-headline {
+      margin-bottom: 10px;
+      @include default-h(42px, 42px, $text-dark-color);
+      text-align: center;
+    }
+    .main__statistics-wrapper {
+      padding: 20px;
+      background-color: $dark-bg-color;
+      border-radius: 10px;
+      .main__statistics-headline {
+        margin-bottom: 10px;
+        @include default-h(36px, 36px, $text-light-color);
+        text-align: center;
+      }
+      .main__statistics-elements-wrapper {
+        display: grid;
+        justify-items: start;
+        align-items: center;
+        row-gap: 15px;
+        column-gap: 30px;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        .main__nickname-label,
+        .main__total-workouts-label,
+        .main__whole-symbols-label,
+        .main__average-speed-label,
+        .main__max-average-speed-label,
+        .main__whole-mistakes-label,
+        .main__average-mistakes-percent-label {
+          justify-self: end;
+          @include default-p(28px, 28px, $text-light-color);
+        }
+        .main__nickname,
+        .main__total-workouts,
+        .main__whole-symbols,
+        .main__average-speed,
+        .main__max-average-speed,
+        .main__whole-mistakes,
+        .main__average-mistakes-percent {
+          @include default-p(28px, 28px, $text-light-color);
+        }
+      }
+    }
+  }
 }

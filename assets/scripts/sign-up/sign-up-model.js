@@ -34,7 +34,7 @@ async function registerAccount(nickname, password) {
       "total-workouts": 0,
       "whole-symbols": 0,
       "average-speed": 0,
-      "best-speed": 0,
+      "max-average-speed": 0,
       "whole-mistakes": 0,
       "average-mistakes-percent": 0,
     })

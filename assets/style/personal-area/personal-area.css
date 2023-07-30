@@ -67,6 +67,12 @@
   min-height: 100vh;
 }
 
+.small-loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
 .section-link {
   display: flex;
   justify-content: center;
@@ -318,6 +324,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.small-loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }
 
 .section-link {
@@ -609,6 +621,12 @@
   min-height: 100vh;
 }
 
+.small-loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
 .section-link {
   display: flex;
   justify-content: center;
@@ -814,4 +832,71 @@
 .main {
   flex-grow: 1;
   background-color: #fffced;
+}
+.main__container {
+  padding: 20px;
+}
+.main__container .main__personal-area-headline {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 42px;
+  color: black;
+  text-align: center;
+}
+.main__container .main__statistics-wrapper {
+  padding: 20px;
+  background-color: #181818;
+  border-radius: 10px;
+}
+.main__container .main__statistics-wrapper .main__statistics-headline {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  color: white;
+  text-align: center;
+}
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper {
+  display: grid;
+  justify-items: start;
+  align-items: center;
+  row-gap: 15px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__nickname-label,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__total-workouts-label,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-symbols-label,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-speed-label,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__max-average-speed-label,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-mistakes-label,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-mistakes-percent-label {
+  justify-self: end;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: white;
+}
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__nickname,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__total-workouts,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-symbols,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-speed,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__max-average-speed,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-mistakes,
+.main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-mistakes-percent {
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: white;
 }/*# sourceMappingURL=personal-area.css.map */

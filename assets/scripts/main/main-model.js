@@ -48,10 +48,10 @@ async function updateUserStatistics(
           currAverageSpeed) /
           (userObj["total-workouts"] + 1)
       ),
-      "best-speed":
-        currAverageSpeed > userObj["best-speed"]
+      "max-average-speed":
+        currAverageSpeed > userObj["max-average-speed"]
           ? currAverageSpeed
-          : userObj["best-speed"],
+          : userObj["max-average-speed"],
       "whole-mistakes": userObj["whole-mistakes"] + moreMistakes,
       "average-mistakes-percent": Number(
         (
