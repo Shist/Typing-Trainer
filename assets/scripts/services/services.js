@@ -26,4 +26,20 @@ async function postData(url, data) {
   }
 }
 
-export { getData, postData };
+async function putData(url, data) {
+  try {
+    const result = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: data,
+    });
+    return await result.json();
+  } catch (e) {
+    console.error(e);
+    return e;
+  }
+}
+
+export { getData, postData, putData };

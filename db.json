@@ -1,34 +1,15 @@
 {
   "users": [
     {
-      "id": 0,
-      "nickname": "Klipot",
-      "password": "XXXXXXXX"
-    },
-    {
       "nickname": "Shist",
       "password": "44444444",
+      "total-workouts": 4,
+      "whole-symbols": 254,
+      "average-speed": 239,
+      "best-speed": 300,
+      "whole-mistakes": 5,
+      "average-mistakes-percent": 1.67,
       "id": 1
-    },
-    {
-      "nickname": "Nadya",
-      "password": "99999999",
-      "id": 2
-    },
-    {
-      "nickname": "eheh",
-      "password": "12341234",
-      "id": 3
-    },
-    {
-      "nickname": "eheheh",
-      "password": "44444444",
-      "id": 4
-    },
-    {
-      "nickname": "eheheheh",
-      "password": "33333333",
-      "id": 5
     }
   ]
 }

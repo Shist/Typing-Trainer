@@ -28,7 +28,16 @@ async function isNicknameFree(nickname) {
 async function registerAccount(nickname, password) {
   const response = await postData(
     "http://localhost:3000/users",
-    JSON.stringify({ nickname, password })
+    JSON.stringify({
+      nickname,
+      password,
+      "total-workouts": 0,
+      "whole-symbols": 0,
+      "average-speed": 0,
+      "best-speed": 0,
+      "whole-mistakes": 0,
+      "average-mistakes-percent": 0,
+    })
   );
   return response;
 }

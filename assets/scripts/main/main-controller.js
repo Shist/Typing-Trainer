@@ -1,6 +1,10 @@
 "use strict";
 
-import { getTextForTyping, getWholeCharsAmount } from "./main-model.js";
+import {
+  getTextForTyping,
+  getWholeCharsAmount,
+  updateUserStatistics,
+} from "./main-model.js";
 import {
   addCloseListenersToModalWindow,
   checkAuthorizationAtLocalStorage,
@@ -9,13 +13,20 @@ import {
 // Controller of Main page
 
 let currWordsArr = [];
-let currWholeCharsCount = 0;
+let currWholeSymbolsAmount = 0;
 let activeWordIndex = 0;
+
 let startTime = "default";
 let intervalId = undefined;
+let currWholeTimeString = "00:00:00";
+
 let currSymbolsAmount = 0;
-let currMaxSpeed = 0;
+
+let currAverageSpeed = 0;
+let currAverageSpeedString = "0 chars/min";
+
 let currMistakesAmount = 0;
+let currMistakesPercentString = "0.00%";
 
 function makePrevWordInactive(wordIndex, typingInput) {
   document.querySelector(`#word-${wordIndex}`).classList.remove("active-word");
@@ -26,20 +37,22 @@ function updateSymbolsAmount(newAmount) {
   currSymbolsAmount = newAmount;
   document.querySelector(
     ".main__symbols-typed"
-  ).textContent = `${currSymbolsAmount} / ${currWholeCharsCount}`;
+  ).textContent = `${currSymbolsAmount} / ${currWholeSymbolsAmount}`;
 }
 
 function updateMistakesAmount(newAmount) {
   currMistakesAmount = newAmount;
   document.querySelector(".main__mistakes-amount").textContent =
     currMistakesAmount;
-  document.querySelector(".main__mistakes-percent").textContent = `${
-    currWholeCharsCount
-      ? ((100 * currMistakesAmount) / currWholeCharsCount).toFixed(2) <= 100
-        ? ((100 * currMistakesAmount) / currWholeCharsCount).toFixed(2)
+  currMistakesPercentString = `${
+    currWholeSymbolsAmount
+      ? ((100 * currMistakesAmount) / currWholeSymbolsAmount).toFixed(2) <= 100
+        ? ((100 * currMistakesAmount) / currWholeSymbolsAmount).toFixed(2)
         : "100.00"
       : "0.00"
   }%`;
+  document.querySelector(".main__mistakes-percent").textContent =
+    currMistakesPercentString;
 }
 
 function getFormattedTimeElementString(number) {
@@ -54,37 +67,41 @@ function updateTimerAndSpeed() {
   const timeLabel = document.querySelector(".main__whole-time");
   const speedLabel = document.querySelector(".main__symbols-speed");
   if (arguments[0] && arguments[0] === "default") {
-    timeLabel.textContent = "00:00:00";
-    speedLabel.textContent = "0";
+    currWholeTimeString = "00:00:00";
+    timeLabel.textContent = currWholeTimeString;
+    currAverageSpeed = 0;
+    currAverageSpeedString = "0 chars/min";
+    speedLabel.textContent = currAverageSpeedString;
   } else {
     const wholeMilliseconds = new Date().getTime() - startTime;
     const currMillisecondsDozens = Math.trunc((wholeMilliseconds % 1000) / 10);
     const wholeSeconds = Math.trunc(wholeMilliseconds / 1000);
     const currSeconds = wholeSeconds % 60;
     const wholeMinutes = Math.trunc(wholeSeconds / 60);
-    timeLabel.textContent = `${getFormattedTimeElementString(
+    currWholeTimeString = `${getFormattedTimeElementString(
       wholeMinutes
     )}:${getFormattedTimeElementString(
       currSeconds
     )}:${getFormattedTimeElementString(currMillisecondsDozens)}`;
-    const currSpeed = Math.trunc(
+    timeLabel.textContent = currWholeTimeString;
+    currAverageSpeed = Math.trunc(
       (currSymbolsAmount * 60000) / wholeMilliseconds
     );
-    if (currSpeed > currMaxSpeed) {
-      currMaxSpeed = currSpeed;
-    }
-    speedLabel.textContent = `${currSpeed} chars/min`;
+    currAverageSpeedString = `${currAverageSpeed} chars/min`;
+    speedLabel.textContent = currAverageSpeedString;
   }
 }
 
 function setAllStatsToDefault(intervalId) {
   currWordsArr = [];
-  currWholeCharsCount = 0;
+  currWholeSymbolsAmount = 0;
   activeWordIndex = 0;
+
   clearInterval(intervalId);
   updateTimerAndSpeed("default");
+
   updateSymbolsAmount(0);
-  currMaxSpeed = 0;
+
   updateMistakesAmount(0);
 }
 
@@ -100,7 +117,7 @@ function initTypingSession(
     currWordsArr = wordsArr;
     startTime = new Date().getTime();
     intervalId = setInterval(updateTimerAndSpeed, 10);
-    currWholeCharsCount = getWholeCharsAmount(wordsArr);
+    currWholeSymbolsAmount = getWholeCharsAmount(wordsArr);
     updateSymbolsAmount(0);
     currWordsArr.forEach((word, index) => {
       const nextWord = document.createElement("span");
@@ -260,24 +277,15 @@ function initMain() {
               </p>
               <div class="modal-window-wrapper__stats-wrapper">
                   <span class="modal-window-wrapper__whole-time-label">Whole time:</span>
-                  <span class="modal-window-wrapper__whole-time">${
-                    document.querySelector(".main__whole-time").textContent
-                  }</span>
+                  <span class="modal-window-wrapper__whole-time">${currWholeTimeString}</span>
                   <span class="modal-window-wrapper__symbols-typed-label">Symbols typed:</span>
-                  <span class="modal-window-wrapper__symbols-typed">${currWholeCharsCount}</span>
+                  <span class="modal-window-wrapper__symbols-typed">${currSymbolsAmount}</span>
                   <span class="modal-window-wrapper__current-speed-label">Average speed:</span>
-                  <span class="modal-window-wrapper__symbols-speed">${
-                    document.querySelector(".main__symbols-speed").textContent
-                  }</span>
+                  <span class="modal-window-wrapper__symbols-speed">${currAverageSpeedString}</span>
                   <span class="modal-window-wrapper__mistakes-amount-label">Mistakes made:</span>
-                  <span class="modal-window-wrapper__mistakes-amount">${
-                    document.querySelector(".main__mistakes-amount").textContent
-                  }</span>
+                  <span class="modal-window-wrapper__mistakes-amount">${currMistakesAmount}</span>
                   <span class="modal-window-wrapper__mistakes-percent-label">Mistakes percent:</span>
-                  <span class="modal-window-wrapper__mistakes-percent">${
-                    document.querySelector(".main__mistakes-percent")
-                      .textContent
-                  }</span>
+                  <span class="modal-window-wrapper__mistakes-percent">${currMistakesPercentString}</span>
               </div>
               <button class="modal-window-wrapper__btn-ok">OK</button>
           </div>
@@ -290,6 +298,21 @@ function initMain() {
         modalWindowOkBtn.addEventListener("click", () => {
           modalWindowWrapper.remove();
         });
+        if (localStorage.getItem("currentUser")) {
+          updateUserStatistics(
+            localStorage.getItem("currentUser"),
+            currSymbolsAmount,
+            currAverageSpeed,
+            currMistakesAmount,
+            Number(currMistakesPercentString.split("%")[0])
+          )
+            .then((response) => {
+              console.log("User statistics has been successfully updated!");
+            })
+            .catch((error) =>
+              console.error(`Error while updating user statistics: ${error}`)
+            );
+        }
         setAllStatsToDefault(intervalId);
       } else {
         if (currWordsArr[activeWordIndex]) {
