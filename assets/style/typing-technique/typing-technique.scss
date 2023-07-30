@@ -5,5 +5,71 @@
 
 .main {
   flex-grow: 1;
-  background-color: $light-bg-color;
+  background-color: $light-bg-blue-color;
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    .main__title-main-headline {
+      margin-bottom: 30px;
+      @include default-h(42px, 42px, $text-dark-color);
+    }
+    .main__beginners-guide-headline {
+      margin-bottom: 20px;
+      @include default-h(32px, 32px, $text-dark-color);
+    }
+    .main__touch-typing-headline,
+    .main__home-row-headline,
+    .main__top-row-headline,
+    .main__bottom-row-headline,
+    .main__numpad-headline,
+    .main__summary-headline,
+    .main__rules-headline,
+    .main__health-tips-headline,
+    .main__other-tips-headline {
+      margin-bottom: 20px;
+      @include default-h(36px, 36px, $text-dark-color);
+    }
+    .main__text {
+      margin-bottom: 10px;
+      @include default-p(20px, 26px, $text-dark-color);
+      .main__bold-phrase {
+        font-weight: bold;
+      }
+    }
+    .main__beginners-guide-img,
+    .main__home-row-img,
+    .main__summary-img,
+    .main__home-row-img {
+      display: block;
+      width: 100%;
+      margin: 0 auto 20px;
+    }
+    .main__rules-list {
+      margin-bottom: 20px;
+      padding-inline: 40px;
+      list-style: decimal;
+      .main__rule-wrapper {
+        @include default-p(22px, 28px, $text-dark-color);
+      }
+    }
+    .main__tips-list {
+      margin-bottom: 20px;
+      padding-inline: 30px;
+      list-style: circle;
+      .main__tip-wrapper {
+        @include default-p(22px, 28px, $text-dark-color);
+      }
+    }
+    .main__original-article-link {
+      display: block;
+      text-align: center;
+      @include default-p(28px, 32px, $text-dark-color);
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+        color: $purple-color;
+      }
+    }
+  }
 }

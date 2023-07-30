@@ -831,5 +831,106 @@
 
 .main {
   flex-grow: 1;
-  background-color: #fffced;
+  background-color: #cdf5f6;
+}
+.main__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.main__container .main__title-main-headline {
+  margin-bottom: 30px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 42px;
+  color: black;
+}
+.main__container .main__beginners-guide-headline {
+  margin-bottom: 20px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 32px;
+  color: black;
+}
+.main__container .main__touch-typing-headline,
+.main__container .main__home-row-headline,
+.main__container .main__top-row-headline,
+.main__container .main__bottom-row-headline,
+.main__container .main__numpad-headline,
+.main__container .main__summary-headline,
+.main__container .main__rules-headline,
+.main__container .main__health-tips-headline,
+.main__container .main__other-tips-headline {
+  margin-bottom: 20px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  color: black;
+}
+.main__container .main__text {
+  margin-bottom: 10px;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: black;
+}
+.main__container .main__text .main__bold-phrase {
+  font-weight: bold;
+}
+.main__container .main__beginners-guide-img,
+.main__container .main__home-row-img,
+.main__container .main__summary-img,
+.main__container .main__home-row-img {
+  display: block;
+  width: 100%;
+  margin: 0 auto 20px;
+}
+.main__container .main__rules-list {
+  margin-bottom: 20px;
+  padding-inline: 40px;
+  list-style: decimal;
+}
+.main__container .main__rules-list .main__rule-wrapper {
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  color: black;
+}
+.main__container .main__tips-list {
+  margin-bottom: 20px;
+  padding-inline: 30px;
+  list-style: circle;
+}
+.main__container .main__tips-list .main__tip-wrapper {
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  color: black;
+}
+.main__container .main__original-article-link {
+  display: block;
+  text-align: center;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+  color: black;
+  transition: 0.3s;
+}
+.main__container .main__original-article-link:hover {
+  transform: scale(1.1);
+  color: #6f2da8;
 }/*# sourceMappingURL=typing-technique.css.map */
