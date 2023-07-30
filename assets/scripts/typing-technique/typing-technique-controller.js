@@ -4,6 +4,10 @@ import { checkAuthorizationAtLocalStorage } from "../tools/tools.js";
 
 // Controller of page "Typing technique"
 
-document.addEventListener("DOMContentLoaded", () => {
-  checkAuthorizationAtLocalStorage();
-});
+function initTypingTechnique() {
+  document.addEventListener("DOMContentLoaded", () => {
+    checkAuthorizationAtLocalStorage();
+  });
+}
+
+initTypingTechnique();
