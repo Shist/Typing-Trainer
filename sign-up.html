@@ -87,8 +87,15 @@
               required
             />
             <h4 class="main__error-msg hidden-element"></h4>
-            <button class="main__confirm-btn">Confirm</button>
+            <h4 class="main__success-msg hidden-element">
+              Account successfully created!
+            </h4>
+            <button class="main__confirm-btn" type="submit">Confirm</button>
           </form>
+          <h3 class="main__sign-up-suggestion-headline">
+            Already have account?
+          </h3>
+          <a href="./sign-in.html" class="main__sign-up-btn">Sign in</a>
         </div>
       </main>
       <footer class="footer">
@@ -110,6 +117,9 @@
         </div>
       </footer>
     </div>
-    <script src="./assets/scripts/sign-up/sign-up-controller.js"></script>
+    <script
+      type="module"
+      src="./assets/scripts/sign-up/sign-up-controller.js"
+    ></script>
   </body>
 </html>

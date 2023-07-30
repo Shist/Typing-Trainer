@@ -437,6 +437,8 @@
   padding: 10px 12px;
 }
 .main .main__container .main__sign-up-form .main__error-msg {
+  display: block;
+  text-align: center;
   margin-bottom: 20px;
   padding: 4px;
   font-family: "Roboto";
@@ -444,6 +446,17 @@
   font-size: 28px;
   line-height: 28px;
   color: #ff4444;
+}
+.main .main__container .main__sign-up-form .main__success-msg {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: #44cc44;
 }
 .main .main__container .main__sign-up-form .main__confirm-btn {
   max-width: 250px;
@@ -462,6 +475,39 @@
   transition: 0.3s;
 }
 .main .main__container .main__sign-up-form .main__confirm-btn:hover {
+  transform: scale(1.1);
+  color: #ffec8b;
+}
+.main .main__container .main__sign-up-suggestion-headline {
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  color: black;
+}
+.main .main__container .main__sign-up-btn {
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  max-width: 250px;
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  color: white;
+  background-color: #181818;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main .main__container .main__sign-up-btn:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }/*# sourceMappingURL=sign-up.css.map */

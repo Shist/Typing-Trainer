@@ -62,12 +62,31 @@
         padding: 10px 12px;
       }
       .main__error-msg {
+        display: block;
+        text-align: center;
         margin-bottom: 20px;
         @include default-p(28px, 28px, $red-color);
+      }
+      .main__success-msg {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        @include default-p(28px, 28px, $green-color);
       }
       .main__confirm-btn {
         @include default-btn(250px, $text-light-color, $dark-blue-color);
       }
+    }
+    .main__sign-up-suggestion-headline {
+      margin-bottom: 10px;
+      text-align: center;
+      @include default-h(36px, 36px, $text-dark-color);
+    }
+    .main__sign-up-btn {
+      display: block;
+      margin: 0 auto;
+      text-decoration: none;
+      @include default-btn(250px, $text-light-color, $dark-bg-color);
     }
   }
 }

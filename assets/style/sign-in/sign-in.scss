@@ -49,6 +49,8 @@
         padding: 10px 12px;
       }
       .main__error-msg {
+        display: block;
+        text-align: center;
         margin-bottom: 20px;
         @include default-p(28px, 28px, $red-color);
       }
