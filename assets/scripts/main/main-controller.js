@@ -88,6 +88,34 @@ function setAllStatsToDefault(intervalId) {
   updateMistakesAmount(0);
 }
 
+function initTypingSession(
+  btnStartTyping,
+  typingTextWrapper,
+  sentencesAmountSlider,
+  typingInput
+) {
+  btnStartTyping.textContent = "Cancel typing";
+  getTextForTyping(sentencesAmountSlider.value).then((wordsArr) => {
+    typingTextWrapper.innerHTML = "";
+    currWordsArr = wordsArr;
+    startTime = new Date().getTime();
+    intervalId = setInterval(updateTimerAndSpeed, 10);
+    currWholeCharsCount = getWholeCharsAmount(wordsArr);
+    updateSymbolsAmount(0);
+    currWordsArr.forEach((word, index) => {
+      const nextWord = document.createElement("span");
+      nextWord.classList.add("typing-word");
+      nextWord.id = `word-${index}`;
+      nextWord.textContent = word;
+      typingTextWrapper.append(nextWord);
+    });
+    document.querySelector("#word-0").classList.add("active-word");
+    sentencesAmountSlider.disabled = true;
+    typingInput.disabled = false;
+    typingInput.focus();
+  });
+}
+
 function initMain() {
   document.addEventListener("DOMContentLoaded", () => {
     checkAuthorizationAtLocalStorage();
@@ -109,73 +137,68 @@ function initMain() {
     btnStartTyping.addEventListener("click", () => {
       typingInput.value = "";
       if (btnStartTyping.textContent === "Start typing") {
-        const modalWindowWrapper = document.createElement("div");
-        modalWindowWrapper.classList.add("modal-window-wrapper");
-        modalWindowWrapper.innerHTML = `
-        <div class="modal-window-wrapper__window">
-            <button class="modal-window-wrapper__close-btn"></button>
-            <h3 class="modal-window-wrapper__headline">Guest mode</h3>
-            <p class="modal-window-wrapper__text-info">
-                You are in the guest mode at the moment. In this mode you cannot save the statistics of your workouts 
-                in the personal account. Would you like to sign in or start typing anyway?
-            </p>
-            <div class="modal-window-wrapper__btns-wrapper">
-                <a href="./sign-in.html" class="modal-window-wrapper__btn-sign-in">Sign in</a>
-                <button class="modal-window-wrapper__btn-start-anyway">Start anyway</button>
+        if (localStorage.getItem("currentUser")) {
+          initTypingSession(
+            btnStartTyping,
+            typingTextWrapper,
+            sentencesAmountSlider,
+            typingInput
+          );
+        } else {
+          const modalWindowWrapper = document.createElement("div");
+          modalWindowWrapper.classList.add("modal-window-wrapper");
+          modalWindowWrapper.innerHTML = `
+            <div class="modal-window-wrapper__window">
+                <button class="modal-window-wrapper__close-btn"></button>
+                <h3 class="modal-window-wrapper__headline">Guest mode</h3>
+                <p class="modal-window-wrapper__text-info">
+                    You are in the guest mode at the moment. In this mode you cannot save the statistics of your workouts 
+                    in the personal account. Would you like to sign in or start typing anyway?
+                </p>
+                <div class="modal-window-wrapper__btns-wrapper">
+                    <a href="./sign-in.html" class="modal-window-wrapper__btn-sign-in">Sign in</a>
+                    <button class="modal-window-wrapper__btn-start-anyway">Start anyway</button>
+                </div>
             </div>
-        </div>
-        `;
-        document.body.append(modalWindowWrapper);
-        addCloseListenersToModalWindow(modalWindowWrapper);
-        const modalWindowSignInBtn = document.querySelector(
-          ".modal-window-wrapper__btn-sign-in"
-        );
-        modalWindowSignInBtn.addEventListener("click", () => {
-          document.href = "./sign-in.html";
-        });
-        const modalWindowStartAnywayBtn = document.querySelector(
-          ".modal-window-wrapper__btn-start-anyway"
-        );
-        modalWindowStartAnywayBtn.addEventListener("click", () => {
-          modalWindowWrapper.remove();
-          btnStartTyping.textContent = "Cancel typing";
-          getTextForTyping(sentencesAmountSlider.value).then((wordsArr) => {
-            typingTextWrapper.innerHTML = "";
-            currWordsArr = wordsArr;
-            startTime = new Date().getTime();
-            intervalId = setInterval(updateTimerAndSpeed, 10);
-            currWholeCharsCount = getWholeCharsAmount(wordsArr);
-            updateSymbolsAmount(0);
-            currWordsArr.forEach((word, index) => {
-              const nextWord = document.createElement("span");
-              nextWord.classList.add("typing-word");
-              nextWord.id = `word-${index}`;
-              nextWord.textContent = word;
-              typingTextWrapper.append(nextWord);
-            });
-            document.querySelector("#word-0").classList.add("active-word");
-            sentencesAmountSlider.disabled = true;
-            typingInput.disabled = false;
-            typingInput.focus();
+            `;
+          document.body.append(modalWindowWrapper);
+          addCloseListenersToModalWindow(modalWindowWrapper);
+          const modalWindowSignInBtn = document.querySelector(
+            ".modal-window-wrapper__btn-sign-in"
+          );
+          modalWindowSignInBtn.addEventListener("click", () => {
+            document.href = "./sign-in.html";
           });
-        });
+          const modalWindowStartAnywayBtn = document.querySelector(
+            ".modal-window-wrapper__btn-start-anyway"
+          );
+          modalWindowStartAnywayBtn.addEventListener("click", () => {
+            modalWindowWrapper.remove();
+            initTypingSession(
+              btnStartTyping,
+              typingTextWrapper,
+              sentencesAmountSlider,
+              typingInput
+            );
+          });
+        }
       } else {
         const modalWindowWrapper = document.createElement("div");
         modalWindowWrapper.classList.add("modal-window-wrapper");
         modalWindowWrapper.innerHTML = `
-        <div class="modal-window-wrapper__window">
-            <button class="modal-window-wrapper__close-btn"></button>
-            <h3 class="modal-window-wrapper__headline">Cancellation</h3>
-            <p class="modal-window-wrapper__text-info">
-                You have not completed your workout yet. If you cancel it you will lose your progress 
-                and the text will have to be typed again. Continue cancellation?
-            </p>
-            <div class="modal-window-wrapper__btns-wrapper">
-                <button class="modal-window-wrapper__btn-resume-typing">Resume typing</button>
-                <button class="modal-window-wrapper__btn-confirm-cancellation">Confirm cancellation</button>
-            </div>
-        </div>
-        `;
+          <div class="modal-window-wrapper__window">
+              <button class="modal-window-wrapper__close-btn"></button>
+              <h3 class="modal-window-wrapper__headline">Cancellation</h3>
+              <p class="modal-window-wrapper__text-info">
+                  You have not completed your workout yet. If you cancel it you will lose your progress 
+                  and the text will have to be typed again. Continue cancellation?
+              </p>
+              <div class="modal-window-wrapper__btns-wrapper">
+                  <button class="modal-window-wrapper__btn-resume-typing">Resume typing</button>
+                  <button class="modal-window-wrapper__btn-confirm-cancellation">Confirm cancellation</button>
+              </div>
+          </div>
+          `;
         document.body.append(modalWindowWrapper);
         addCloseListenersToModalWindow(modalWindowWrapper);
         const modalWindowResumeTypingBtn = document.querySelector(
@@ -229,35 +252,36 @@ function initMain() {
         const modalWindowWrapper = document.createElement("div");
         modalWindowWrapper.classList.add("modal-window-wrapper");
         modalWindowWrapper.innerHTML = `
-        <div class="modal-window-wrapper__window">
-            <button class="modal-window-wrapper__close-btn"></button>
-            <h3 class="modal-window-wrapper__headline">&#129395 Сongratulations! &#129395</h3>
-            <p class="modal-window-wrapper__text-info">
-                You have successfully completed typing!
-            </p>
-            <div class="modal-window-wrapper__stats-wrapper">
-                <span class="modal-window-wrapper__whole-time-label">Whole time:</span>
-                <span class="modal-window-wrapper__whole-time">${
-                  document.querySelector(".main__whole-time").textContent
-                }</span>
-                <span class="modal-window-wrapper__symbols-typed-label">Symbols typed:</span>
-                <span class="modal-window-wrapper__symbols-typed">${currWholeCharsCount}</span>
-                <span class="modal-window-wrapper__current-speed-label">Average speed:</span>
-                <span class="modal-window-wrapper__symbols-speed">${
-                  document.querySelector(".main__symbols-speed").textContent
-                }</span>
-                <span class="modal-window-wrapper__mistakes-amount-label">Mistakes made:</span>
-                <span class="modal-window-wrapper__mistakes-amount">${
-                  document.querySelector(".main__mistakes-amount").textContent
-                }</span>
-                <span class="modal-window-wrapper__mistakes-percent-label">Mistakes percent:</span>
-                <span class="modal-window-wrapper__mistakes-percent">${
-                  document.querySelector(".main__mistakes-percent").textContent
-                }</span>
-            </div>
-            <button class="modal-window-wrapper__btn-ok">OK</button>
-        </div>
-        `;
+          <div class="modal-window-wrapper__window">
+              <button class="modal-window-wrapper__close-btn"></button>
+              <h3 class="modal-window-wrapper__headline">&#129395 Сongratulations! &#129395</h3>
+              <p class="modal-window-wrapper__text-info">
+                  You have successfully completed typing!
+              </p>
+              <div class="modal-window-wrapper__stats-wrapper">
+                  <span class="modal-window-wrapper__whole-time-label">Whole time:</span>
+                  <span class="modal-window-wrapper__whole-time">${
+                    document.querySelector(".main__whole-time").textContent
+                  }</span>
+                  <span class="modal-window-wrapper__symbols-typed-label">Symbols typed:</span>
+                  <span class="modal-window-wrapper__symbols-typed">${currWholeCharsCount}</span>
+                  <span class="modal-window-wrapper__current-speed-label">Average speed:</span>
+                  <span class="modal-window-wrapper__symbols-speed">${
+                    document.querySelector(".main__symbols-speed").textContent
+                  }</span>
+                  <span class="modal-window-wrapper__mistakes-amount-label">Mistakes made:</span>
+                  <span class="modal-window-wrapper__mistakes-amount">${
+                    document.querySelector(".main__mistakes-amount").textContent
+                  }</span>
+                  <span class="modal-window-wrapper__mistakes-percent-label">Mistakes percent:</span>
+                  <span class="modal-window-wrapper__mistakes-percent">${
+                    document.querySelector(".main__mistakes-percent")
+                      .textContent
+                  }</span>
+              </div>
+              <button class="modal-window-wrapper__btn-ok">OK</button>
+          </div>
+          `;
         document.body.append(modalWindowWrapper);
         addCloseListenersToModalWindow(modalWindowWrapper);
         const modalWindowOkBtn = document.querySelector(
