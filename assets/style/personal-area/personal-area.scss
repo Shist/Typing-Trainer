@@ -14,11 +14,17 @@
       text-align: center;
     }
     .main__statistics-wrapper {
-      padding: 20px;
+      padding: 40px;
       background-color: $dark-bg-color;
       border-radius: 10px;
+      @media (max-width: $tablet-l) {
+        padding: 30px;
+      }
+      @media (max-width: $phone-l) {
+        padding: 20px;
+      }
       .main__statistics-headline {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         @include default-h(36px, 36px, $text-light-color);
         text-align: center;
       }
@@ -30,6 +36,12 @@
         column-gap: 30px;
         grid-template-rows: repeat(7, 1fr);
         grid-template-columns: repeat(2, 1fr);
+        @media (max-width: $phone-l) {
+          justify-items: center;
+          row-gap: 5px;
+          grid-template-rows: repeat(14, 1fr);
+          grid-template-columns: repeat(1, 1fr);
+        }
         .main__nickname-label,
         .main__total-workouts-label,
         .main__whole-symbols-label,
@@ -38,7 +50,12 @@
         .main__whole-mistakes-label,
         .main__average-mistakes-percent-label {
           justify-self: end;
+          text-align: end;
           @include default-p(28px, 28px, $text-light-color);
+          @media (max-width: $phone-l) {
+            justify-self: auto;
+            text-align: center;
+          }
         }
         .main__nickname,
         .main__total-workouts,
@@ -48,6 +65,9 @@
         .main__whole-mistakes,
         .main__average-mistakes-percent {
           @include default-p(28px, 28px, $text-light-color);
+          @media (max-width: $phone-l) {
+            margin-bottom: 20px;
+          }
         }
       }
     }

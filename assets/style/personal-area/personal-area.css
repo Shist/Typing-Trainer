@@ -1594,12 +1594,22 @@
   text-align: center;
 }
 .main__container .main__statistics-wrapper {
-  padding: 20px;
+  padding: 40px;
   background-color: #181818;
   border-radius: 10px;
 }
+@media (max-width: 768px) {
+  .main__container .main__statistics-wrapper {
+    padding: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .main__container .main__statistics-wrapper {
+    padding: 20px;
+  }
+}
 .main__container .main__statistics-wrapper .main__statistics-headline {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 8px;
   font-family: "Roboto";
   font-weight: 700;
@@ -1618,6 +1628,14 @@
   grid-template-rows: repeat(7, 1fr);
   grid-template-columns: repeat(2, 1fr);
 }
+@media (max-width: 480px) {
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper {
+    justify-items: center;
+    row-gap: 5px;
+    grid-template-rows: repeat(14, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__nickname-label,
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__total-workouts-label,
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-symbols-label,
@@ -1626,12 +1644,25 @@
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-mistakes-label,
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-mistakes-percent-label {
   justify-self: end;
+  text-align: end;
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
   font-size: 28px;
   line-height: 28px;
   color: white;
+}
+@media (max-width: 480px) {
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__nickname-label,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__total-workouts-label,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-symbols-label,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-speed-label,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__max-average-speed-label,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-mistakes-label,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-mistakes-percent-label {
+    justify-self: auto;
+    text-align: center;
+  }
 }
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__nickname,
 .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__total-workouts,
@@ -1646,4 +1677,15 @@
   font-size: 28px;
   line-height: 28px;
   color: white;
+}
+@media (max-width: 480px) {
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__nickname,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__total-workouts,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-symbols,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-speed,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__max-average-speed,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__whole-mistakes,
+  .main__container .main__statistics-wrapper .main__statistics-elements-wrapper .main__average-mistakes-percent {
+    margin-bottom: 20px;
+  }
 }/*# sourceMappingURL=personal-area.css.map */
