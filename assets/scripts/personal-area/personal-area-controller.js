@@ -1,12 +1,16 @@
 "use strict";
 
 import { setExitListener, getUserStatistics } from "./personal-area-model.js";
-import { openModalWindowWithErrorMessage } from "../tools/tools.js";
+import {
+  toggleBurgerMenu,
+  openModalWindowWithErrorMessage,
+} from "../tools/tools.js";
 
 // Controller of page "Personal area"
 
 function initPersonalArea() {
   document.addEventListener("DOMContentLoaded", () => {
+    toggleBurgerMenu();
     setExitListener();
     const nickname = document.querySelector(".main__nickname");
     const totalWorkouts = document.querySelector(".main__total-workouts");

@@ -115,6 +115,10 @@
   &__text {
     transition: 0.3s;
     @include default-p(20px, 20px, $text-light-color);
+    @media (max-width: $laptop-s) {
+      font-size: 16px;
+      line-height: 16px;
+    }
   }
 }
 

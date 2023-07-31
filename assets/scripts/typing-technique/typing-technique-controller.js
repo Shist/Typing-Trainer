@@ -1,11 +1,15 @@
 "use strict";
 
-import { checkAuthorizationAtLocalStorage } from "../tools/tools.js";
+import {
+  toggleBurgerMenu,
+  checkAuthorizationAtLocalStorage,
+} from "../tools/tools.js";
 
 // Controller of page "Typing technique"
 
 function initTypingTechnique() {
   document.addEventListener("DOMContentLoaded", () => {
+    toggleBurgerMenu();
     checkAuthorizationAtLocalStorage();
   });
 }

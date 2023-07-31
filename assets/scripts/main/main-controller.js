@@ -6,6 +6,7 @@ import {
   updateUserStatistics,
 } from "./main-model.js";
 import {
+  toggleBurgerMenu,
   addCloseListenersToModalWindow,
   openModalWindowWithErrorMessage,
   checkAuthorizationAtLocalStorage,
@@ -160,6 +161,7 @@ function initTypingSession(
 
 function initMain() {
   document.addEventListener("DOMContentLoaded", () => {
+    toggleBurgerMenu();
     checkAuthorizationAtLocalStorage();
 
     const sentencesAmountSlider = document.querySelector("#sentencesAmount");

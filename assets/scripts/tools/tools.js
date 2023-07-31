@@ -1,5 +1,27 @@
 "use strict";
 
+function toggleBurgerMenu() {
+  const headerNav = document.querySelector(".header__nav");
+  document
+    .querySelector(".header__burger-menu-btn")
+    .addEventListener("click", () => {
+      if (window.getComputedStyle(headerNav, null).display === "flex") {
+        headerNav.classList.remove("appeared-flex");
+        headerNav.classList.add("hidden-element");
+      } else {
+        headerNav.classList.remove("hidden-element");
+        headerNav.classList.add("appeared-flex");
+      }
+    });
+  const tabletL = 768;
+  window.addEventListener("resize", () => {
+    if (window.outerWidth > tabletL) {
+      headerNav.classList.remove("hidden-element");
+      headerNav.classList.remove("appeared-flex");
+    }
+  });
+}
+
 function addCloseListenersToModalWindow(modalWindowWrapper, isError) {
   const modalWindowCloseBtn = document.querySelector(
     `.${isError ? "error-" : ""}modal-window-wrapper__close-btn`
@@ -54,6 +76,7 @@ function checkAuthorizationAtLocalStorage() {
 }
 
 export {
+  toggleBurgerMenu,
   addCloseListenersToModalWindow,
   openModalWindowWithErrorMessage,
   putAuthorizationToLocalStorage,

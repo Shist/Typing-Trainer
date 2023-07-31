@@ -1,12 +1,17 @@
 "use strict";
 
 import { showElement, hideElement, getNicknameData } from "./sign-in-model.js";
-import { putAuthorizationToLocalStorage } from "../tools/tools.js";
+import {
+  toggleBurgerMenu,
+  putAuthorizationToLocalStorage,
+} from "../tools/tools.js";
 
 // Controller of page "Sign in"
 
 function initSignIn() {
   document.addEventListener("DOMContentLoaded", () => {
+    toggleBurgerMenu();
+
     const nicknameInput = document.querySelector("#nicknameInput");
     const passwordInput = document.querySelector("#passwordInput");
     const errorMsgLabel = document.querySelector(".main__error-msg");

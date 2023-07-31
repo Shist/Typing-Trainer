@@ -7,6 +7,7 @@ import {
   registerAccount,
 } from "./sign-up-model.js";
 import {
+  toggleBurgerMenu,
   addCloseListenersToModalWindow,
   putAuthorizationToLocalStorage,
 } from "../tools/tools.js";
@@ -15,6 +16,8 @@ import {
 
 function initSignUp() {
   document.addEventListener("DOMContentLoaded", () => {
+    toggleBurgerMenu();
+
     const form = document.querySelector(".main__sign-up-form");
     const nicknameInput = document.querySelector("#nicknameInput");
     const passwordInput = document.querySelector("#passwordInput");
