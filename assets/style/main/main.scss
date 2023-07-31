@@ -36,10 +36,22 @@
       column-gap: 30px;
       grid-template-rows: repeat(2, 1fr);
       grid-template-columns: repeat(2, 1fr);
+      @media (max-width: $tablet-l) {
+        justify-items: center;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media (max-width: $phone-l) {
+        row-gap: 5px;
+      }
       .main__choose-sentences-amount-label,
       .main__current-sentences-amount-label {
         @include default-p(28px, 28px, $text-dark-color);
         justify-self: end;
+        text-align: center;
+        @media (max-width: $tablet-l) {
+          justify-self: auto;
+        }
       }
       .main__current-sentences-amount {
         @include default-p(28px, 28px, $text-dark-color);
@@ -90,6 +102,9 @@
       background-color: $dark-bg-color;
       padding: 20px;
       border-radius: 10px;
+      @media (max-width: $tablet-s) {
+        padding: 10px;
+      }
       .main__typing-stats-wrapper {
         margin-bottom: 20px;
         display: grid;
@@ -97,6 +112,12 @@
         column-gap: 10px;
         grid-template-rows: repeat(5, 1fr);
         grid-template-columns: repeat(2, 1fr);
+        @media (max-width: $tablet-s) {
+          justify-items: center;
+          row-gap: 0;
+          grid-template-rows: repeat(10, 1fr);
+          grid-template-columns: repeat(1, 1fr);
+        }
         .main__whole-time-label,
         .main__symbols-typed-label,
         .main__current-speed-label,
@@ -104,6 +125,10 @@
         .main__mistakes-percent-label {
           @include default-p(24px, 24px, $text-light-color);
           justify-self: end;
+          @media (max-width: $tablet-s) {
+            @include default-p(18px, 18px, $text-light-color);
+            justify-self: auto;
+          }
         }
         .main__whole-time,
         .main__symbols-typed,
@@ -111,6 +136,10 @@
         .main__mistakes-amount,
         .main__mistakes-percent {
           @include default-p(24px, 24px, $text-light-color);
+          @media (max-width: $tablet-s) {
+            @include default-p(18px, 18px, $text-light-color);
+            margin-bottom: 10px;
+          }
         }
       }
       .main__typing-text-input-wrapper {
