@@ -119,4 +119,4 @@ function initSignUp() {
   });
 }
 
-initSignUp();
+export default initSignUp;

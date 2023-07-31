@@ -46,4 +46,4 @@ function initPersonalArea() {
   });
 }
 
-initPersonalArea();
+export default initPersonalArea;

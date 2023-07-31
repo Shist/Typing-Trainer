@@ -68,4 +68,4 @@ function initSignIn() {
   });
 }
 
-initSignIn();
+export default initSignIn;

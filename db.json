@@ -10,6 +10,17 @@
       "whole-mistakes": 30,
       "average-mistakes-percent": 2.59,
       "id": 1
+    },
+    {
+      "nickname": "Mike",
+      "password": "11111111",
+      "total-workouts": 2,
+      "whole-symbols": 181,
+      "average-speed": 248,
+      "max-average-speed": 266,
+      "whole-mistakes": 6,
+      "average-mistakes-percent": 3.69,
+      "id": 2
     }
   ]
 }

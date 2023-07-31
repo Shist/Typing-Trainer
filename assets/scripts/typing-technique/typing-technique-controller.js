@@ -14,4 +14,4 @@ function initTypingTechnique() {
   });
 }
 
-initTypingTechnique();
+export default initTypingTechnique;

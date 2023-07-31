@@ -14,4 +14,4 @@ function initAboutProject() {
   });
 }
 
-initAboutProject();
+export default initAboutProject;
