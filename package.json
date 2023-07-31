@@ -12,12 +12,24 @@
   },
   "author": "Shist",
   "license": "ISC",
+  "browsersList": [
+    "> 1%"
+  ],
   "bugs": {
     "url": "https://github.com/Shist/Typing-Trainer/issues"
   },
   "homepage": "https://github.com/Shist/Typing-Trainer#readme",
   "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-loader": "^9.1.3",
+    "core-js": "^3.32.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "json-server": "^0.17.3"
   }
 }
