@@ -24,9 +24,15 @@
       }
       .main__nickname-input-label {
         margin-bottom: 10px;
+        text-align: center;
         @include default-h(28px, 28px, $text-light-color);
+        @media (max-width: $phone-l) {
+          font-size: 24px;
+          line-height: 24px;
+        }
       }
       .main__nickname-input {
+        width: 100%;
         margin-bottom: 20px;
         -webkit-appearance: none;
         appearance: none;
@@ -37,9 +43,15 @@
       }
       .main__password-input-label {
         margin-bottom: 10px;
+        text-align: center;
         @include default-h(28px, 28px, $text-light-color);
+        @media (max-width: $phone-l) {
+          font-size: 24px;
+          line-height: 24px;
+        }
       }
       .main__password-input {
+        width: 100%;
         margin-bottom: 20px;
         -webkit-appearance: none;
         appearance: none;
