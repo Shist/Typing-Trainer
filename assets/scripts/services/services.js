@@ -6,7 +6,7 @@ async function getData(url) {
     return await response.json();
   } catch (e) {
     console.error(e);
-    return e;
+    throw e;
   }
 }
 
@@ -22,7 +22,7 @@ async function postData(url, data) {
     return await result.json();
   } catch (e) {
     console.error(e);
-    return e;
+    throw e;
   }
 }
 
@@ -38,7 +38,7 @@ async function putData(url, data) {
     return await result.json();
   } catch (e) {
     console.error(e);
-    return e;
+    throw e;
   }
 }
 

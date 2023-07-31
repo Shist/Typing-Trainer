@@ -14,6 +14,7 @@ function initSignIn() {
 
     confirmBtn.addEventListener("click", (event) => {
       event.preventDefault();
+      hideElement(errorMsgLabel, "block");
       const enteredNickname = nicknameInput.value;
       const enteredPassword = passwordInput.value;
       if (!enteredNickname.trim()) {
@@ -23,6 +24,14 @@ function initSignIn() {
         errorMsgLabel.textContent = "Password can not be empty!";
         showElement(errorMsgLabel, "block");
       } else {
+        const spinnerImg = document.createElement("img");
+        spinnerImg.src = "./assets/images/loading-spinner.svg";
+        spinnerImg.alt = "Loading";
+        spinnerImg.classList.add(
+          "loading-spinner",
+          "loading-spinner_with-margin-bottom"
+        );
+        passwordInput.insertAdjacentElement("afterend", spinnerImg);
         getNicknameData(enteredNickname)
           .then((user) => {
             if (!user) {
@@ -42,8 +51,12 @@ function initSignIn() {
             }
           })
           .catch((error) => {
-            errorMsgLabel.textContent = `Error while checking user at database: ${error}`;
+            const errorMsg = `Error while checking user at database: ${error}`;
+            errorMsgLabel.textContent = errorMsg;
             showElement(errorMsgLabel, "block");
+          })
+          .finally(() => {
+            spinnerImg.remove();
           });
       }
     });

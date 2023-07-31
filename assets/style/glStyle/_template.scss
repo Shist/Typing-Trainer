@@ -25,6 +25,12 @@
   display: flex !important;
 }
 
+.centered-flex-column {
+  flex-direction: column !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
 // Default settings of headlines, you only need to choose font size, line height and text color
 @mixin default-h($font-size, $line-height, $text-color) {
   padding: 8px;
@@ -77,6 +83,15 @@
   min-height: 100vh;
 }
 
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  &_with-margin-bottom {
+    margin-bottom: 20px;
+  }
+}
+
 .small-loading-spinner {
   display: inline-block;
   width: 20px;
@@ -103,7 +118,8 @@
   }
 }
 
-.modal-window-wrapper {
+.modal-window-wrapper,
+.error-modal-window-wrapper {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -122,7 +138,8 @@
     background-color: $light-bg-color;
     padding: 20px;
     border-radius: 10px;
-    .modal-window-wrapper__close-btn {
+    .modal-window-wrapper__close-btn,
+    .error-modal-window-wrapper__close-btn {
       position: absolute;
       top: 5px;
       right: 5px;
@@ -144,6 +161,10 @@
       text-align: center;
       @include default-p(28px, 28px, $text-dark-color);
     }
+    .modal-window-wrapper__error-info {
+      text-align: center;
+      @include default-p(28px, 28px, $red-color);
+    }
     .modal-window-wrapper__btns-wrapper {
       display: flex;
       justify-content: space-evenly;
@@ -157,7 +178,8 @@
         @include default-btn(200px, $text-light-color, $dark-bg-color);
       }
     }
-    .modal-window-wrapper__btn-ok {
+    .modal-window-wrapper__btn-ok,
+    .error-modal-window-wrapper__btn-ok {
       align-self: center;
       @include default-btn(300px, $text-light-color, $dark-bg-color);
     }

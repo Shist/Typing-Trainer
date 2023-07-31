@@ -25,6 +25,7 @@ function initSignUp() {
 
     confirmBtn.addEventListener("click", (event) => {
       event.preventDefault();
+      hideElement(errorMsgLabel, "block");
       const enteredNickname = nicknameInput.value;
       const nicknameChecker = /^[a-zA-Z0-9]+$/;
       if (enteredNickname.length < 4) {
@@ -53,6 +54,14 @@ function initSignUp() {
           errorMsgLabel.textContent = "The entered passwords do not match!";
           showElement(errorMsgLabel, "block");
         } else {
+          const spinnerImg = document.createElement("img");
+          spinnerImg.src = "./assets/images/loading-spinner.svg";
+          spinnerImg.alt = "Loading";
+          spinnerImg.classList.add(
+            "loading-spinner",
+            "loading-spinner_with-margin-bottom"
+          );
+          repeatPasswordInput.insertAdjacentElement("afterend", spinnerImg);
           isNicknameFree(enteredNickname)
             .then((isFree) => {
               if (isFree) {
@@ -73,7 +82,7 @@ function initSignUp() {
                         </div>
                         `;
                     document.body.append(modalWindowWrapper);
-                    addCloseListenersToModalWindow(modalWindowWrapper);
+                    addCloseListenersToModalWindow(modalWindowWrapper, false);
                     const modalWindowOkBtn = document.querySelector(
                       ".modal-window-wrapper__btn-ok"
                     );
@@ -83,7 +92,8 @@ function initSignUp() {
                     });
                   })
                   .catch((error) => {
-                    errorMsgLabel.textContent = `Error while adding this account to database: ${error}`;
+                    const errorMsg = `Error while adding this account to database: ${error}`;
+                    errorMsgLabel.textContent = errorMsg;
                     showElement(errorMsgLabel, "block");
                   });
               } else {
@@ -93,8 +103,12 @@ function initSignUp() {
               }
             })
             .catch((error) => {
-              errorMsgLabel.textContent = `Error while checking this nickname in database: ${error}`;
+              const errorMsg = `Error while checking this nickname in database: ${error}`;
+              errorMsgLabel.textContent = errorMsg;
               showElement(errorMsgLabel, "block");
+            })
+            .finally(() => {
+              spinnerImg.remove();
             });
         }
       }

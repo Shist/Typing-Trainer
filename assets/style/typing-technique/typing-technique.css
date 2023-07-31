@@ -58,6 +58,12 @@
   display: flex !important;
 }
 
+.centered-flex-column {
+  flex-direction: column !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
 .global-container {
   max-width: 1920px;
   width: 100%;
@@ -65,6 +71,15 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+.loading-spinner_with-margin-bottom {
+  margin-bottom: 20px;
 }
 
 .small-loading-spinner {
@@ -99,7 +114,8 @@
   color: white;
 }
 
-.modal-window-wrapper {
+.modal-window-wrapper,
+.error-modal-window-wrapper {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -110,7 +126,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.modal-window-wrapper__window {
+.modal-window-wrapper__window,
+.error-modal-window-wrapper__window {
   position: relative;
   max-width: 650px;
   display: flex;
@@ -120,7 +137,10 @@
   padding: 20px;
   border-radius: 10px;
 }
-.modal-window-wrapper__window .modal-window-wrapper__close-btn {
+.modal-window-wrapper__window .modal-window-wrapper__close-btn,
+.modal-window-wrapper__window .error-modal-window-wrapper__close-btn,
+.error-modal-window-wrapper__window .modal-window-wrapper__close-btn,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__close-btn {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -133,7 +153,8 @@
   background-image: url(../../images/cross.png);
   background-size: cover;
 }
-.modal-window-wrapper__window .modal-window-wrapper__headline {
+.modal-window-wrapper__window .modal-window-wrapper__headline,
+.error-modal-window-wrapper__window .modal-window-wrapper__headline {
   align-self: center;
   padding: 8px;
   font-family: "Roboto";
@@ -143,7 +164,8 @@
   color: black;
   padding-inline: 40px;
 }
-.modal-window-wrapper__window .modal-window-wrapper__text-info {
+.modal-window-wrapper__window .modal-window-wrapper__text-info,
+.error-modal-window-wrapper__window .modal-window-wrapper__text-info {
   text-align: center;
   padding: 4px;
   font-family: "Roboto";
@@ -152,11 +174,23 @@
   line-height: 28px;
   color: black;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+.modal-window-wrapper__window .modal-window-wrapper__error-info,
+.error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+  text-align: center;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: #ff4444;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
   display: flex;
   justify-content: space-evenly;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
   text-decoration: none;
   max-width: 200px;
   width: 100%;
@@ -173,13 +207,17 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
   max-width: 200px;
   width: 100%;
   padding: 20px;
@@ -197,11 +235,17 @@
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btn-ok {
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+.modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
+.error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok {
   align-self: center;
   max-width: 300px;
   width: 100%;
@@ -218,11 +262,15 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover,
+.modal-window-wrapper__window .error-modal-window-wrapper__btn-ok:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
   margin-bottom: 20px;
   display: grid;
   row-gap: 5px;
@@ -235,7 +283,12 @@
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -248,7 +301,12 @@
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -317,6 +375,12 @@
   display: flex !important;
 }
 
+.centered-flex-column {
+  flex-direction: column !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
 .global-container {
   max-width: 1920px;
   width: 100%;
@@ -324,6 +388,15 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+.loading-spinner_with-margin-bottom {
+  margin-bottom: 20px;
 }
 
 .small-loading-spinner {
@@ -358,7 +431,8 @@
   color: white;
 }
 
-.modal-window-wrapper {
+.modal-window-wrapper,
+.error-modal-window-wrapper {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -369,7 +443,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.modal-window-wrapper__window {
+.modal-window-wrapper__window,
+.error-modal-window-wrapper__window {
   position: relative;
   max-width: 650px;
   display: flex;
@@ -379,7 +454,10 @@
   padding: 20px;
   border-radius: 10px;
 }
-.modal-window-wrapper__window .modal-window-wrapper__close-btn {
+.modal-window-wrapper__window .modal-window-wrapper__close-btn,
+.modal-window-wrapper__window .error-modal-window-wrapper__close-btn,
+.error-modal-window-wrapper__window .modal-window-wrapper__close-btn,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__close-btn {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -392,7 +470,8 @@
   background-image: url(../../images/cross.png);
   background-size: cover;
 }
-.modal-window-wrapper__window .modal-window-wrapper__headline {
+.modal-window-wrapper__window .modal-window-wrapper__headline,
+.error-modal-window-wrapper__window .modal-window-wrapper__headline {
   align-self: center;
   padding: 8px;
   font-family: "Roboto";
@@ -402,7 +481,8 @@
   color: black;
   padding-inline: 40px;
 }
-.modal-window-wrapper__window .modal-window-wrapper__text-info {
+.modal-window-wrapper__window .modal-window-wrapper__text-info,
+.error-modal-window-wrapper__window .modal-window-wrapper__text-info {
   text-align: center;
   padding: 4px;
   font-family: "Roboto";
@@ -411,11 +491,23 @@
   line-height: 28px;
   color: black;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+.modal-window-wrapper__window .modal-window-wrapper__error-info,
+.error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+  text-align: center;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: #ff4444;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
   display: flex;
   justify-content: space-evenly;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
   text-decoration: none;
   max-width: 200px;
   width: 100%;
@@ -432,13 +524,17 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
   max-width: 200px;
   width: 100%;
   padding: 20px;
@@ -456,11 +552,17 @@
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btn-ok {
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+.modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
+.error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok {
   align-self: center;
   max-width: 300px;
   width: 100%;
@@ -477,11 +579,15 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover,
+.modal-window-wrapper__window .error-modal-window-wrapper__btn-ok:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
   margin-bottom: 20px;
   display: grid;
   row-gap: 5px;
@@ -494,7 +600,12 @@
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -507,7 +618,12 @@
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -612,6 +728,12 @@
   display: flex !important;
 }
 
+.centered-flex-column {
+  flex-direction: column !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
 .global-container {
   max-width: 1920px;
   width: 100%;
@@ -619,6 +741,15 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+.loading-spinner_with-margin-bottom {
+  margin-bottom: 20px;
 }
 
 .small-loading-spinner {
@@ -653,7 +784,8 @@
   color: white;
 }
 
-.modal-window-wrapper {
+.modal-window-wrapper,
+.error-modal-window-wrapper {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -664,7 +796,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.modal-window-wrapper__window {
+.modal-window-wrapper__window,
+.error-modal-window-wrapper__window {
   position: relative;
   max-width: 650px;
   display: flex;
@@ -674,7 +807,10 @@
   padding: 20px;
   border-radius: 10px;
 }
-.modal-window-wrapper__window .modal-window-wrapper__close-btn {
+.modal-window-wrapper__window .modal-window-wrapper__close-btn,
+.modal-window-wrapper__window .error-modal-window-wrapper__close-btn,
+.error-modal-window-wrapper__window .modal-window-wrapper__close-btn,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__close-btn {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -687,7 +823,8 @@
   background-image: url(../../images/cross.png);
   background-size: cover;
 }
-.modal-window-wrapper__window .modal-window-wrapper__headline {
+.modal-window-wrapper__window .modal-window-wrapper__headline,
+.error-modal-window-wrapper__window .modal-window-wrapper__headline {
   align-self: center;
   padding: 8px;
   font-family: "Roboto";
@@ -697,7 +834,8 @@
   color: black;
   padding-inline: 40px;
 }
-.modal-window-wrapper__window .modal-window-wrapper__text-info {
+.modal-window-wrapper__window .modal-window-wrapper__text-info,
+.error-modal-window-wrapper__window .modal-window-wrapper__text-info {
   text-align: center;
   padding: 4px;
   font-family: "Roboto";
@@ -706,11 +844,23 @@
   line-height: 28px;
   color: black;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+.modal-window-wrapper__window .modal-window-wrapper__error-info,
+.error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+  text-align: center;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  color: #ff4444;
+}
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
   display: flex;
   justify-content: space-evenly;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
   text-decoration: none;
   max-width: 200px;
   width: 100%;
@@ -727,13 +877,17 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
   max-width: 200px;
   width: 100%;
   padding: 20px;
@@ -751,11 +905,17 @@
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
-.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btn-ok {
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+.modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
+.error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok {
   align-self: center;
   max-width: 300px;
   width: 100%;
@@ -772,11 +932,15 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover {
+.modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover,
+.modal-window-wrapper__window .error-modal-window-wrapper__btn-ok:hover,
+.error-modal-window-wrapper__window .modal-window-wrapper__btn-ok:hover,
+.error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok:hover {
   transform: scale(1.1);
   color: #ffec8b;
 }
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
   margin-bottom: 20px;
   display: grid;
   row-gap: 5px;
@@ -789,7 +953,12 @@
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;
@@ -802,7 +971,12 @@
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
-.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+.modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+.error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
   padding: 4px;
   font-family: "Roboto";
   font-weight: 400;

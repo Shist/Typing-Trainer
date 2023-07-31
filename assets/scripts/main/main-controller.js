@@ -7,6 +7,7 @@ import {
 } from "./main-model.js";
 import {
   addCloseListenersToModalWindow,
+  openModalWindowWithErrorMessage,
   checkAuthorizationAtLocalStorage,
 } from "../tools/tools.js";
 
@@ -111,26 +112,50 @@ function initTypingSession(
   sentencesAmountSlider,
   typingInput
 ) {
+  typingTextWrapper.classList.add("centered-flex-column");
   btnStartTyping.textContent = "Cancel typing";
-  getTextForTyping(sentencesAmountSlider.value).then((wordsArr) => {
-    typingTextWrapper.innerHTML = "";
-    currWordsArr = wordsArr;
-    startTime = new Date().getTime();
-    intervalId = setInterval(updateTimerAndSpeed, 10);
-    currWholeSymbolsAmount = getWholeCharsAmount(wordsArr);
-    updateSymbolsAmount(0);
-    currWordsArr.forEach((word, index) => {
-      const nextWord = document.createElement("span");
-      nextWord.classList.add("typing-word");
-      nextWord.id = `word-${index}`;
-      nextWord.textContent = word;
-      typingTextWrapper.append(nextWord);
+  typingTextWrapper.innerHTML = `
+      <span class="main__typing-text-start-msg">
+        Getting some text from the server . . .
+      </span>
+      <img
+        src="./assets/images/loading-spinner.svg"
+        alt="Loading"
+        class="loading-spinner"
+      />`;
+  getTextForTyping(sentencesAmountSlider.value)
+    .then((wordsArr) => {
+      typingTextWrapper.innerHTML = "";
+      currWordsArr = wordsArr;
+      startTime = new Date().getTime();
+      intervalId = setInterval(updateTimerAndSpeed, 10);
+      currWholeSymbolsAmount = getWholeCharsAmount(wordsArr);
+      updateSymbolsAmount(0);
+      currWordsArr.forEach((word, index) => {
+        const nextWord = document.createElement("span");
+        nextWord.classList.add("typing-word");
+        nextWord.id = `word-${index}`;
+        nextWord.textContent = word;
+        typingTextWrapper.append(nextWord);
+      });
+      document.querySelector("#word-0").classList.add("active-word");
+      sentencesAmountSlider.disabled = true;
+      typingInput.disabled = false;
+      typingInput.focus();
+    })
+    .catch((error) => {
+      const errorMsg = `Error while trying to get some text from the server: ${error}`;
+      openModalWindowWithErrorMessage(errorMsg);
+      console.error(errorMsg);
+      typingTextWrapper.innerHTML = `
+          <span class="main__typing-text-start-msg">
+            An error occurred while trying to fetch some text from the server. 
+            Try again later or refresh the page.
+          </span>`;
+    })
+    .finally(() => {
+      typingTextWrapper.classList.remove("centered-flex-column");
     });
-    document.querySelector("#word-0").classList.add("active-word");
-    sentencesAmountSlider.disabled = true;
-    typingInput.disabled = false;
-    typingInput.focus();
-  });
 }
 
 function initMain() {
@@ -179,7 +204,7 @@ function initMain() {
             </div>
             `;
           document.body.append(modalWindowWrapper);
-          addCloseListenersToModalWindow(modalWindowWrapper);
+          addCloseListenersToModalWindow(modalWindowWrapper, false);
           const modalWindowSignInBtn = document.querySelector(
             ".modal-window-wrapper__btn-sign-in"
           );
@@ -217,7 +242,7 @@ function initMain() {
           </div>
           `;
         document.body.append(modalWindowWrapper);
-        addCloseListenersToModalWindow(modalWindowWrapper);
+        addCloseListenersToModalWindow(modalWindowWrapper, false);
         const modalWindowResumeTypingBtn = document.querySelector(
           ".modal-window-wrapper__btn-resume-typing"
         );
@@ -291,7 +316,7 @@ function initMain() {
           </div>
           `;
         document.body.append(modalWindowWrapper);
-        addCloseListenersToModalWindow(modalWindowWrapper);
+        addCloseListenersToModalWindow(modalWindowWrapper, false);
         const modalWindowOkBtn = document.querySelector(
           ".modal-window-wrapper__btn-ok"
         );
@@ -307,11 +332,15 @@ function initMain() {
             Number(currMistakesPercentString.split("%")[0])
           )
             .then((response) => {
-              console.log("User statistics has been successfully updated!");
+              console.log(
+                `User statistics has been successfully updated! Response: ${response}`
+              );
             })
-            .catch((error) =>
-              console.error(`Error while updating user statistics: ${error}`)
-            );
+            .catch((error) => {
+              const errorMsg = `Error while updating user statistics: ${error}`;
+              openModalWindowWithErrorMessage(errorMsg);
+              console.error(errorMsg);
+            });
         }
         setAllStatsToDefault(intervalId);
       } else {
