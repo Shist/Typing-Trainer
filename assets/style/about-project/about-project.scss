@@ -6,4 +6,28 @@
 .main {
   flex-grow: 1;
   background-color: $light-purple-color;
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    .main__main-headline {
+      margin-bottom: 30px;
+      @include default-h(42px, 42px, $text-dark-color);
+    }
+    .main__main-description {
+      margin-bottom: 50px;
+      @include default-p(28px, 32px, $text-dark-color);
+    }
+    .main__used-technologies-headline {
+      margin-bottom: 30px;
+      @include default-h(36px, 36px, $text-dark-color);
+    }
+    .main__technologies-list {
+      padding-inline: 30px;
+      list-style: circle;
+      .main__technology-wrapper {
+        @include default-p(22px, 26px, $text-dark-color);
+      }
+    }
+  }
 }

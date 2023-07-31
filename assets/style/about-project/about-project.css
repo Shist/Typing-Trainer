@@ -832,4 +832,48 @@
 .main {
   flex-grow: 1;
   background-color: #d6cdea;
+}
+.main__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.main__container .main__main-headline {
+  margin-bottom: 30px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 42px;
+  color: black;
+}
+.main__container .main__main-description {
+  margin-bottom: 50px;
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32px;
+  color: black;
+}
+.main__container .main__used-technologies-headline {
+  margin-bottom: 30px;
+  padding: 8px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 36px;
+  color: black;
+}
+.main__container .main__technologies-list {
+  padding-inline: 30px;
+  list-style: circle;
+}
+.main__container .main__technologies-list .main__technology-wrapper {
+  padding: 4px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: black;
 }/*# sourceMappingURL=about-project.css.map */
