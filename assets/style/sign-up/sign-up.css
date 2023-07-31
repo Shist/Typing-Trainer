@@ -122,6 +122,7 @@
 
 .modal-window-wrapper,
 .error-modal-window-wrapper {
+  padding: 20px;
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -143,6 +144,12 @@
   padding: 20px;
   border-radius: 10px;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window,
+  .error-modal-window-wrapper__window {
+    padding: 50px 10px 10px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__close-btn,
 .modal-window-wrapper__window .error-modal-window-wrapper__close-btn,
 .error-modal-window-wrapper__window .modal-window-wrapper__close-btn,
@@ -162,6 +169,7 @@
 .modal-window-wrapper__window .modal-window-wrapper__headline,
 .error-modal-window-wrapper__window .modal-window-wrapper__headline {
   align-self: center;
+  text-align: center;
   padding: 8px;
   font-family: "Roboto";
   font-weight: 700;
@@ -169,6 +177,35 @@
   line-height: 48px;
   color: black;
   padding-inline: 40px;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline {
+    font-size: 34px;
+    line-height: 34px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline_congrats,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline_congrats {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline_congrats,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline_congrats {
+    font-size: 22px;
+    line-height: 22px;
+    padding-inline: 8px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__text-info,
 .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
@@ -180,6 +217,20 @@
   line-height: 28px;
   color: black;
 }
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__text-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__text-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__error-info,
 .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
   text-align: center;
@@ -190,10 +241,34 @@
   line-height: 28px;
   color: #ff4444;
 }
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__error-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__error-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
   display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   justify-content: space-evenly;
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
@@ -217,6 +292,13 @@
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
   transform: scale(1.1);
   color: #ffec8b;
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
@@ -248,6 +330,17 @@
   transform: scale(1.1);
   color: #ffec8b;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__btn-ok,
 .modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
 .error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
@@ -275,10 +368,20 @@
   transform: scale(1.1);
   color: #ffec8b;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+  .modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+  .error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper,
 .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
   margin-bottom: 20px;
   display: grid;
+  align-items: center;
   row-gap: 5px;
   -moz-column-gap: 10px;
        column-gap: 10px;
@@ -302,6 +405,37 @@
   line-height: 24px;
   color: black;
   justify-self: end;
+  text-align: end;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
@@ -319,6 +453,36 @@
   font-size: 24px;
   line-height: 24px;
   color: black;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 
 /* font "Roboto", normal, 400 */
@@ -445,6 +609,7 @@
 
 .modal-window-wrapper,
 .error-modal-window-wrapper {
+  padding: 20px;
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -466,6 +631,12 @@
   padding: 20px;
   border-radius: 10px;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window,
+  .error-modal-window-wrapper__window {
+    padding: 50px 10px 10px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__close-btn,
 .modal-window-wrapper__window .error-modal-window-wrapper__close-btn,
 .error-modal-window-wrapper__window .modal-window-wrapper__close-btn,
@@ -485,6 +656,7 @@
 .modal-window-wrapper__window .modal-window-wrapper__headline,
 .error-modal-window-wrapper__window .modal-window-wrapper__headline {
   align-self: center;
+  text-align: center;
   padding: 8px;
   font-family: "Roboto";
   font-weight: 700;
@@ -492,6 +664,35 @@
   line-height: 48px;
   color: black;
   padding-inline: 40px;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline {
+    font-size: 34px;
+    line-height: 34px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline_congrats,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline_congrats {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline_congrats,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline_congrats {
+    font-size: 22px;
+    line-height: 22px;
+    padding-inline: 8px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__text-info,
 .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
@@ -503,6 +704,20 @@
   line-height: 28px;
   color: black;
 }
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__text-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__text-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__error-info,
 .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
   text-align: center;
@@ -513,10 +728,34 @@
   line-height: 28px;
   color: #ff4444;
 }
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__error-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__error-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
   display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   justify-content: space-evenly;
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
@@ -540,6 +779,13 @@
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
   transform: scale(1.1);
   color: #ffec8b;
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
@@ -571,6 +817,17 @@
   transform: scale(1.1);
   color: #ffec8b;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__btn-ok,
 .modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
 .error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
@@ -598,10 +855,20 @@
   transform: scale(1.1);
   color: #ffec8b;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+  .modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+  .error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper,
 .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
   margin-bottom: 20px;
   display: grid;
+  align-items: center;
   row-gap: 5px;
   -moz-column-gap: 10px;
        column-gap: 10px;
@@ -625,6 +892,37 @@
   line-height: 24px;
   color: black;
   justify-self: end;
+  text-align: end;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
@@ -642,6 +940,36 @@
   font-size: 24px;
   line-height: 24px;
   color: black;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 
 .header {
@@ -867,6 +1195,7 @@
 
 .modal-window-wrapper,
 .error-modal-window-wrapper {
+  padding: 20px;
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -888,6 +1217,12 @@
   padding: 20px;
   border-radius: 10px;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window,
+  .error-modal-window-wrapper__window {
+    padding: 50px 10px 10px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__close-btn,
 .modal-window-wrapper__window .error-modal-window-wrapper__close-btn,
 .error-modal-window-wrapper__window .modal-window-wrapper__close-btn,
@@ -907,6 +1242,7 @@
 .modal-window-wrapper__window .modal-window-wrapper__headline,
 .error-modal-window-wrapper__window .modal-window-wrapper__headline {
   align-self: center;
+  text-align: center;
   padding: 8px;
   font-family: "Roboto";
   font-weight: 700;
@@ -914,6 +1250,35 @@
   line-height: 48px;
   color: black;
   padding-inline: 40px;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline {
+    font-size: 34px;
+    line-height: 34px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline_congrats,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline_congrats {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__headline_congrats,
+  .error-modal-window-wrapper__window .modal-window-wrapper__headline_congrats {
+    font-size: 22px;
+    line-height: 22px;
+    padding-inline: 8px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__text-info,
 .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
@@ -925,6 +1290,20 @@
   line-height: 28px;
   color: black;
 }
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__text-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__text-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__text-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__error-info,
 .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
   text-align: center;
@@ -935,10 +1314,34 @@
   line-height: 28px;
   color: #ff4444;
 }
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__error-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__error-info,
+  .error-modal-window-wrapper__window .modal-window-wrapper__error-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
   display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   justify-content: space-evenly;
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
@@ -962,6 +1365,13 @@
 .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in:hover {
   transform: scale(1.1);
   color: #ffec8b;
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-sign-in {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
 .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
@@ -993,6 +1403,17 @@
   transform: scale(1.1);
   color: #ffec8b;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+  .modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-start-anyway,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-confirm-cancellation,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btns-wrapper .modal-window-wrapper__btn-resume-typing {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__btn-ok,
 .modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
 .error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
@@ -1020,10 +1441,20 @@
   transform: scale(1.1);
   color: #ffec8b;
 }
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+  .modal-window-wrapper__window .error-modal-window-wrapper__btn-ok,
+  .error-modal-window-wrapper__window .modal-window-wrapper__btn-ok,
+  .error-modal-window-wrapper__window .error-modal-window-wrapper__btn-ok {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper,
 .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper {
   margin-bottom: 20px;
   display: grid;
+  align-items: center;
   row-gap: 5px;
   -moz-column-gap: 10px;
        column-gap: 10px;
@@ -1047,6 +1478,37 @@
   line-height: 24px;
   color: black;
   justify-self: end;
+  text-align: end;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__current-speed-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount-label,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent-label {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
 .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
@@ -1064,6 +1526,36 @@
   font-size: 24px;
   line-height: 24px;
   color: black;
+}
+@media (max-width: 768px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__whole-time,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-typed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__symbols-speed,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-amount,
+  .error-modal-window-wrapper__window .modal-window-wrapper__stats-wrapper .modal-window-wrapper__mistakes-percent {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 
 .footer {

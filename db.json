@@ -3,12 +3,12 @@
     {
       "nickname": "Shist",
       "password": "44444444",
-      "total-workouts": 10,
-      "whole-symbols": 658,
-      "average-speed": 212,
+      "total-workouts": 16,
+      "whole-symbols": 1096,
+      "average-speed": 221,
       "max-average-speed": 300,
-      "whole-mistakes": 16,
-      "average-mistakes-percent": 2.39,
+      "whole-mistakes": 30,
+      "average-mistakes-percent": 2.59,
       "id": 1
     }
   ]

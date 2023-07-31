@@ -124,6 +124,7 @@
 
 .modal-window-wrapper,
 .error-modal-window-wrapper {
+  padding: 20px;
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -142,6 +143,9 @@
     background-color: $light-bg-color;
     padding: 20px;
     border-radius: 10px;
+    @media (max-width: $phone-l) {
+      padding: 50px 10px 10px;
+    }
     .modal-window-wrapper__close-btn,
     .error-modal-window-wrapper__close-btn {
       position: absolute;
@@ -158,38 +162,93 @@
     }
     .modal-window-wrapper__headline {
       align-self: center;
+      text-align: center;
       @include default-h(48px, 48px, $text-dark-color);
       padding-inline: 40px;
+      @media (max-width: $tablet-l) {
+        font-size: 34px;
+        line-height: 34px;
+      }
+      @media (max-width: $phone-l) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+      &_congrats {
+        @media (max-width: $tablet-l) {
+          font-size: 30px;
+          line-height: 30px;
+        }
+        @media (max-width: $phone-l) {
+          font-size: 22px;
+          line-height: 22px;
+          padding-inline: 8px;
+        }
+      }
     }
     .modal-window-wrapper__text-info {
       text-align: center;
       @include default-p(28px, 28px, $text-dark-color);
+      @media (max-width: $tablet-l) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+      @media (max-width: $phone-l) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     .modal-window-wrapper__error-info {
       text-align: center;
       @include default-p(28px, 28px, $red-color);
+      @media (max-width: $tablet-l) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+      @media (max-width: $phone-l) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     .modal-window-wrapper__btns-wrapper {
       display: flex;
+      column-gap: 10px;
       justify-content: space-evenly;
+      @media (max-width: $phone-l) {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+      }
       .modal-window-wrapper__btn-sign-in {
         text-decoration: none;
         @include default-btn(200px, $text-light-color, $dark-bg-color);
+        @media (max-width: $phone-l) {
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
       .modal-window-wrapper__btn-start-anyway,
       .modal-window-wrapper__btn-confirm-cancellation,
       .modal-window-wrapper__btn-resume-typing {
         @include default-btn(200px, $text-light-color, $dark-bg-color);
+        @media (max-width: $phone-l) {
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
     }
     .modal-window-wrapper__btn-ok,
     .error-modal-window-wrapper__btn-ok {
       align-self: center;
       @include default-btn(300px, $text-light-color, $dark-bg-color);
+      @media (max-width: $phone-l) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
     .modal-window-wrapper__stats-wrapper {
       margin-bottom: 20px;
       display: grid;
+      align-items: center;
       row-gap: 5px;
       column-gap: 10px;
       grid-template-rows: repeat(5, 1fr);
@@ -201,6 +260,15 @@
       .modal-window-wrapper__mistakes-percent-label {
         @include default-p(24px, 24px, $text-dark-color);
         justify-self: end;
+        text-align: end;
+        @media (max-width: $tablet-l) {
+          font-size: 22px;
+          line-height: 22px;
+        }
+        @media (max-width: $phone-l) {
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
       .modal-window-wrapper__whole-time,
       .modal-window-wrapper__symbols-typed,
@@ -208,6 +276,14 @@
       .modal-window-wrapper__mistakes-amount,
       .modal-window-wrapper__mistakes-percent {
         @include default-p(24px, 24px, $text-dark-color);
+        @media (max-width: $tablet-l) {
+          font-size: 22px;
+          line-height: 22px;
+        }
+        @media (max-width: $phone-l) {
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
     }
   }

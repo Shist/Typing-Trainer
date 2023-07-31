@@ -298,7 +298,7 @@ function initMain() {
         modalWindowWrapper.innerHTML = `
           <div class="modal-window-wrapper__window">
               <button class="modal-window-wrapper__close-btn"></button>
-              <h3 class="modal-window-wrapper__headline">&#129395 Сongratulations! &#129395</h3>
+              <h3 class="modal-window-wrapper__headline modal-window-wrapper__headline_congrats">&#129395 Сongratulations! &#129395</h3>
               <p class="modal-window-wrapper__text-info">
                   You have successfully completed typing!
               </p>
