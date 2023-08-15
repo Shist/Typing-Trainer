@@ -1744,6 +1744,11 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+@media (max-width: 480px) {
+  .main__container .main__typing-area-wrapper .main__typing-stats-wrapper {
+    margin-bottom: 5px;
+  }
+}
 .main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__whole-time-label,
 .main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__symbols-typed-label,
 .main__container .main__typing-area-wrapper .main__typing-stats-wrapper .main__current-speed-label,
@@ -1808,6 +1813,17 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+}
+@media (max-width: 768px) {
+  .main__container .main__typing-area-wrapper .main__typing-text-input-wrapper .main__typing-text-wrapper {
+    max-height: 400px;
+    overflow: scroll;
+  }
+}
+@media (max-width: 576px) {
+  .main__container .main__typing-area-wrapper .main__typing-text-input-wrapper .main__typing-text-wrapper {
+    max-height: 200px;
+  }
 }
 .main__container .main__typing-area-wrapper .main__typing-text-input-wrapper .main__typing-text-wrapper .main__typing-text-start-msg {
   padding: 4px;

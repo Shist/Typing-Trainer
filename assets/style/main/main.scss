@@ -118,6 +118,9 @@
           grid-template-rows: repeat(10, 1fr);
           grid-template-columns: repeat(1, 1fr);
         }
+        @media (max-width: $phone-l) {
+          margin-bottom: 5px;
+        }
         .main__whole-time-label,
         .main__symbols-typed-label,
         .main__current-speed-label,
@@ -150,6 +153,13 @@
           display: flex;
           flex-wrap: wrap;
           align-content: flex-start;
+          @media (max-width: $tablet-l) {
+            max-height: 400px;
+            overflow: scroll;
+          }
+          @media (max-width: $tablet-s) {
+            max-height: 200px;
+          }
           .main__typing-text-start-msg {
             @include default-p(20px, 20px, $text-light-color);
           }
