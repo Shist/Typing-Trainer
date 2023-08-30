@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+# Commect build to deploy on GitHub and hosting server Vercel.com after that
+# /build
 
 # misc
 .DS_Store
